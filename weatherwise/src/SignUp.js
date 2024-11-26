@@ -12,7 +12,7 @@ export default function SignUp() {
         confirmPassword: "",
         city: "",
         state: "",
-        profilePic: "",
+        profilePic: "default.png",
         country: ""
     };
 
@@ -90,7 +90,7 @@ export default function SignUp() {
             formData.append('city', user.city);
             formData.append('state', user.state);
             formData.append('country', user.country);
-            formData.append('profilePic', file.name);
+            formData.append('profilePic', file.name || 'default.png');
             formData.append('file', file);
 
             const response = await axios.post("http://localhost:5000/api/signup", formData, {
