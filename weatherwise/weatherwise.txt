@@ -1,0 +1,23 @@
+1. Signin 
+2. ⁠signup 
+3. ⁠profile page
+4. ⁠update profile
+5. ⁠city crud
+6. ⁠city wise temperature entry on frequency of one hour 
+7. ⁠search city & get weather
+
+Use 
+
+useEffect
+useCallback
+useMemo
+
+
+& other react life cycles
+
+
+Also it should have proper 
+
+Props & state managed
+
+Also use jwt token for authentication + use redux if possible
