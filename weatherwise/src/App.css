@@ -1,6 +1,6 @@
 
 :root{
-  --primary: #200a01;
+  --primary: #002053;
 }
 
 body {
@@ -12,7 +12,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #92400E;
+  background-color: rgb(71 85 105);;
   border-radius: 4px; 
 }
 

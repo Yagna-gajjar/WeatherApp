@@ -5,7 +5,7 @@ import SignUp from './SignUp.js';
 import SignIn from './SignIn.js';
 import Display from './Display.js';
 import EditProfile from './EditProfile.js';
-import AddEditCity from './AddEditCity.js';
+import WeatherTable from './WeatherTable.js';
 import PvtRoute from './PvtRoute.js';
 
 function App() {
@@ -15,7 +15,6 @@ function App() {
         <Route path='/' element={<Herosection />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/signin' element={<SignIn />} />
-
         <Route path='/index' element={
           <PvtRoute>
             <Display />
@@ -24,14 +23,11 @@ function App() {
           <PvtRoute>
             <EditProfile />
           </PvtRoute>} />
-        <Route path='/addeditCity/:cityId' element={
+        <Route path='/WeatherTable' element={
           <PvtRoute>
-            <AddEditCity />
-          </PvtRoute>} />
-        <Route path='/addeditCity' element={
-          <PvtRoute>
-            <AddEditCity />
-          </PvtRoute>} />
+            <WeatherTable />
+          </PvtRoute>
+        } />
 
       </Routes>
     </BrowserRouter>

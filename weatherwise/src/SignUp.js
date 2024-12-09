@@ -56,9 +56,10 @@ export default function SignUp() {
 
     const handleCitySelect = (city) => {
         dispatch({ field: 'city', value: city.cityName });
-        dispatch({ field: 'state', value: city.state });
-        dispatch({ field: 'country', value: city.country });
+        dispatch({ field: 'state', value: city.stateID.stateName });
+        dispatch({ field: 'country', value: city.countryID.countryName });
         setSelectedCity(city);
+
         setFilteredCities([]);
     };
     const [file, setFile] = useState({})
@@ -99,6 +100,7 @@ export default function SignUp() {
 
             if (response.status === 201) {
                 localStorage.setItem("email", response.data.user.email);
+
                 localStorage.setItem("city_id", response.data.citydata._id);
                 localStorage.setItem("role", response.data.user.role);
                 navigate('/index');
@@ -155,7 +157,7 @@ export default function SignUp() {
                     placeholder='Username'
                     value={user.username}
                     onChange={handleChange}
-                    className='w-96 placeholder-amber-950 bg-transparent text-amber-800 border bottom-1 border-amber-800 rounded-xl my-3 py-1 px-3'
+                    className='w-96 placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl my-3 py-1 px-3'
                 />
                 <input
                     type='email'
@@ -163,7 +165,7 @@ export default function SignUp() {
                     placeholder='Email'
                     value={user.email}
                     onChange={handleChange}
-                    className='w-96 placeholder-amber-950 bg-transparent text-amber-800 border bottom-1 border-amber-800 rounded-xl my-3 py-1 px-3'
+                    className='w-96 placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl my-3 py-1 px-3'
                 />
                 <div className="relative w-96 my-3">
                     <input
@@ -172,12 +174,12 @@ export default function SignUp() {
                         value={user.password}
                         onChange={handleChange}
                         placeholder="Password"
-                        className="placeholder-amber-950 bg-transparent text-amber-800 border bottom-1 border-amber-800 rounded-xl py-1 px-3 w-full"
+                        className="placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl py-1 px-3 w-full"
                     />
                     <button
                         type="button"
                         onClick={togglePasswordVisibility}
-                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-amber-800"
+                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400"
                     >
                         {showPassword ? <FaEyeSlash /> : <FaEye />}
                     </button>
@@ -188,7 +190,7 @@ export default function SignUp() {
                     placeholder='Repeat Password'
                     value={user.confirmPassword}
                     onChange={handleChange}
-                    className='w-96 placeholder-amber-950 bg-transparent text-amber-800 border bottom-1 border-amber-800 rounded-xl my-3 py-1 px-3'
+                    className='w-96 placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl my-3 py-1 px-3'
                 />
                 <div className="relative w-96">
                     <input
@@ -197,7 +199,7 @@ export default function SignUp() {
                         placeholder='City Name'
                         value={user.city}
                         onChange={handleCityInput}
-                        className='w-full placeholder-amber-950 bg-transparent text-amber-800 border bottom-1 border-amber-800 rounded-xl my-3 py-1 px-3'
+                        className='w-full placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl my-3 py-1 px-3'
                     />
                     {filteredCities.length > 0 && (
                         <ul className="w-96 bg-white shadow-lg max-h-40 overflow-y-auto rounded-lg">
@@ -205,29 +207,29 @@ export default function SignUp() {
                                 <li
                                     key={city.cityName}
                                     onClick={() => handleCitySelect(city)}
-                                    className="px-3 py-2 cursor-pointer hover:bg-amber-100"
+                                    className="px-3 py-2 cursor-pointer hover:bg-slate-300"
                                 >
-                                    {city.cityName}, {city.state}, {city.country}
+                                    {city.cityName}, {city.stateID.stateName}, {city.countryID.countryName}
                                 </li>
                             ))}
                         </ul>
                     )}
                     {selectedCity && (
-                        <div className="mt-3 text-amber-800">
+                        <div className="mt-3 text-slate-400">
                             <p>City: {selectedCity.cityName}</p>
-                            <p>State: {selectedCity.state}</p>
-                            <p>Country: {selectedCity.country}</p>
+                            <p>State: {selectedCity.stateID.stateName}</p>
+                            <p>Country: {selectedCity.countryID.countryName}</p>
                         </div>
                     )}
-                    <Link to={'/signin'} className='text-amber-800'>Already have an account? <span className='hover:cursor-pointer hover:text-amber-600'>Sign In</span></Link>
+                    <Link to={'/signin'} className='text-slate-600'>Already have an account? <span className='hover:cursor-pointer hover:text-slate-300'>Sign In</span></Link>
                     <div>
                         <button
                             onClick={handleSignUp}
                             type='submit'
-                            className='bg-amber-950 text-amber-700 px-3 py-1 rounded-2xl mt-3 mb-4 mx-3'>
+                            className='bg-slate-500  text-slate-900 hover:bg-slate-700 hover:text-slate-200 px-3 py-1 rounded-2xl mt-3 mb-4 mx-3'>
                             Sign Up
                         </button>
-                        <button onClick={goBack} className='bg-amber-950 text-amber-700 px-3 py-1 rounded-2xl mt-3 mb-4 mx-3'>Back</button>
+                        <button onClick={goBack} className='bg-slate-500  text-slate-900 hover:bg-slate-700 hover:text-slate-200 px-3 py-1 rounded-2xl mt-3 mb-4 mx-3'>Back</button>
                     </div>
                 </div>
             </div>

@@ -16,22 +16,24 @@ const generateToken = (user) => {
     );
 };
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cd) {
-        cd(null, '../src/assets/images')
-    },
-    filename: function (req, file, cd) {
-        cd(null, file.originalname);
+const storage = multer.diskStorage(
+    {
+        destination: function (req, file, cd) {
+            cd(null, '../src/assets/images')
+        },
+        filename: function (req, file, cd) {
+            cd(null, file.originalname);
+        }
     }
-})
+)
 
 export const upload = multer({ storage });
 
 export const signup = async (req, res) => {
     try {
         const { username, email, password, city, state, country, profilePic } = req.body;
-        
-        const citydata = await cities.findOne({ cityName: city, state: state, country: country });
+
+        const citydata = await cities.findOne({ cityName: city });
         const isUserExist = await users.findOne({ email });
         if (isUserExist) {
             return res.status(400).json({ message: 'User already exists' });
@@ -62,9 +64,11 @@ export const signin = async (req, res) => {
 
         const user = await users.findOne({ email });
         const city = user.city
-        const state = user.state
-        const country = user.country
-        const citydata = await cities.findOne({ cityName: city, state: state, country: country });
+        console.log(city);
+
+        const citydata = await cities.findOne({ cityName: city });
+        console.log(citydata);
+
 
         if (!user) {
             return res.status(404).json({ message: 'User not found' });

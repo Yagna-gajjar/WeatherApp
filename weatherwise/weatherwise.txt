@@ -21,3 +21,133 @@ Also it should have proper
 Props & state managed
 
 Also use jwt token for authentication + use redux if possible
+
+india - 674e0128950367e8c392b284
+    Gujarat - 674e01af950367e8c392b293
+        Ahmedabad - 674e0418a6b239ebfb81958b
+        Surat - 674e042ca6b239ebfb81958e
+        Vadodara - 674e0436a6b239ebfb819591
+
+    Maharashtra - 674e01bf950367e8c392b296
+        Mumbai - 674e044ba6b239ebfb819594
+        Pune - 674e0452a6b239ebfb819597
+        Nagpur - 674e045aa6b239ebfb81959a
+
+    Rajasthan - 674e01dd950367e8c392b299
+        Jaipur - 674e046ba6b239ebfb81959d
+        Udaipur - 674e0474a6b239ebfb8195a0
+        Jodhpur - 674e047ba6b239ebfb8195a3
+
+    Kerala - 674e0241950367e8c392b29c
+        Kochi - 674e048ea6b239ebfb8195a6
+        Thiruvananthapuram - 674e0499a6b239ebfb8195a9
+        Kozhikode - 674e049fa6b239ebfb8195ac
+
+    Tamil Nadu - 674e0254950367e8c392b29f
+        Chennai - 674e04b3a6b239ebfb8195af
+        Coimbatore - 674e04bba6b239ebfb8195b2
+        Madurai - 674e04c2a6b239ebfb8195b5
+
+United States - 674e0161950367e8c392b287
+    California - 674e0270950367e8c392b2a2
+        Los Angeles - 674e051ba6b239ebfb8195b8
+        San Francisco - 674e052da6b239ebfb8195bb
+        San Diego - 674e0535a6b239ebfb8195be
+
+    Texas - 674e027f950367e8c392b2a5
+        Houston - 674e0553a6b239ebfb8195c1
+        Dallas - 674e055ea6b239ebfb8195c4
+        Austin - 674e0564a6b239ebfb8195c7
+
+    Florida - 674e0284950367e8c392b2a8
+        Miami - 674e057aa6b239ebfb8195ca
+        Orlando - 674e0582a6b239ebfb8195cd
+        Tampa - 674e0588a6b239ebfb8195d0
+
+    New York - 674e028e950367e8c392b2ab
+        New York City - 674e05eca6b239ebfb8195d3
+        Buffalo - 674e05f5a6b239ebfb8195d6
+        Rochester - 674e05fba6b239ebfb8195d9
+
+    Illinois - 674e0297950367e8c392b2ae
+        Chicago - 674e060ca6b239ebfb8195dc
+        Springfield - 674e061ca6b239ebfb8195df
+        Aurora - 674e062ba6b239ebfb8195e2
+
+Canada - 674e0169950367e8c392b28a
+    Ontario - 674e02ad950367e8c392b2b1
+        Toronto - 674e0654a6b239ebfb8195e5
+        Ottawa - 674e065aa6b239ebfb8195e8
+        Mississauga - 674e0661a6b239ebfb8195eb
+
+    Quebec - 674e02b4950367e8c392b2b4
+        Montreal - 674e067ca6b239ebfb8195ee
+        Quebec City - 674e068ca6b239ebfb8195f1
+        Laval - 674e0693a6b239ebfb8195f4
+
+    British Columbia - 674e02bb950367e8c392b2b7
+        Vancouver - 674e06aea6b239ebfb8195f7
+        Victoria - 674e06b7a6b239ebfb8195fa
+        Surrey - 674e06bfa6b239ebfb8195fd
+
+    Alberta - 674e02c1950367e8c392b2ba
+        Calgary - 674e06d8a6b239ebfb819600
+        Edmonton - 674e06dea6b239ebfb819603
+        Red Deer - 674e06e5a6b239ebfb819606
+
+    Manitoba - 674e02c7950367e8c392b2bd
+        Winnipeg - 674e06f6a6b239ebfb819609
+        Brandon - 674e0703a6b239ebfb81960c
+        Steinbach - 674e0709a6b239ebfb81960f
+
+Australia - 674e016f950367e8c392b28d
+    New South Wales - 674e031a950367e8c392b2c0
+        Sydney - 674e0752a6b239ebfb819612
+        Newcastle - 674e075da6b239ebfb819615
+        Wollongong - 674e0763a6b239ebfb819618
+
+    Victoria - 674e0334950367e8c392b2c3
+        Melbourne - 674e078fa6b239ebfb81961b
+        Geelong - 674e0799a6b239ebfb81961e
+        Ballarat - 674e079fa6b239ebfb819621
+
+    Queensland - 674e033d950367e8c392b2c6
+        Brisbane - 674e07b4a6b239ebfb819624
+        Gold Coast - 674e07c2a6b239ebfb819627
+        Cairns - 674e07cca6b239ebfb81962a
+
+    Western Australia - 674e0345950367e8c392b2c9
+        Perth - 674e0a6aa6b239ebfb81962d 
+        Fremantle - 674e0a74a6b239ebfb819630
+        Bunbury - 674e0a7ba6b239ebfb819633
+
+    Tasmania - 674e034c950367e8c392b2cc
+        Hobart - 674e0a8ca6b239ebfb819636
+        Launceston - 674e0a94a6b239ebfb819639
+        Devonport - 674e0a9ca6b239ebfb81963c
+
+Brazil - 674e0176950367e8c392b290
+    São Paulo - 674e0366950367e8c392b2cf
+        São Paulo City - 674e0ab6a6b239ebfb81963f
+        Campinas - 674e0ac0a6b239ebfb819642
+        Santos - 674e0ac6a6b239ebfb819645
+
+    Rio de Janeiro - 674e0372950367e8c392b2d2
+        Rio de Janeiro City - 674e0ad8a6b239ebfb819648
+        Niterói - 674e0ae2a6b239ebfb81964b
+        Petrópolis - 674e0ae9a6b239ebfb81964e
+
+    Bahia - 674e037a950367e8c392b2d5
+        Salvador - 674e0b4aa6b239ebfb819651
+        Feira de Santana - 674e0b58a6b239ebfb819654
+        Ilhéus - 674e0b61a6b239ebfb819657
+
+    Paraná - 674e0381950367e8c392b2d8
+        Curitiba - 674e0b78a6b239ebfb81965a
+        Londrina - 674e0b7da6b239ebfb81965d
+        Maringá - 674e0b83a6b239ebfb819660
+
+    Minas Gerais - 674e0390950367e8c392b2db
+        Belo Horizonte - 674e0390950367e8c392b2db
+        Uberlândia - 674e0b9ca6b239ebfb819666
+        Juiz de Fora - 674e0ba5a6b239ebfb819669

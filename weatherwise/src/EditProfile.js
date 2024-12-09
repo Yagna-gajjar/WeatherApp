@@ -27,6 +27,7 @@ export default function EditProfile() {
   };
 
   const [profilePic, setProfilePic] = useState(DefaultProfile);
+
   const [file, setFile] = useState({});
 
   const handleFileChange = (e) => {
@@ -39,16 +40,20 @@ export default function EditProfile() {
       };
       reader.readAsDataURL(myfile);
     }
-    dispatch({ field: 'profilePic', value: e.target.files[0].name });
+    dispatch({ field: e.target.name, value: e.target.files[0].name });
   };
 
   const handleEditProfile = async () => {
     const { email, ...profileData } = state;
+    profileData['profilePic'] = file.name || 'default.png';
+    profileData['file'] = file;
 
     try {
       const response = await axios.put(
         `http://localhost:5000/api/editprofile/${email}`,
-        profileData
+        profileData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      }
       );
 
       if (response.status === 200) {
@@ -60,16 +65,48 @@ export default function EditProfile() {
       alert('Failed to update profile!');
     }
   };
+  const [cities, setCities] = useState([]);
+  const [filteredCities, setFilteredCities] = useState([]);
+  const [selectedCity, setSelectedCity] = useState(null);
+
+  const handleCityInput = (e) => {
+    const input = e.target.value;
+    dispatch({ field: 'city', value: input });
+    if (input) {
+      const filtered = cities.filter(city =>
+        city.cityName.toLowerCase().includes(input.toLowerCase())
+      );
+      setFilteredCities(filtered);
+    } else {
+      setFilteredCities([]);
+    }
+  };
+
+  const handleCitySelect = (city) => {
+    dispatch({ field: 'city', value: city.cityName });
+    dispatch({ field: 'state', value: city.stateID.stateName });
+    dispatch({ field: 'country', value: city.countryID.countryName });
+    setSelectedCity(city);
+    localStorage.setItem('city_id', city._id);
+    setFilteredCities([]);
+  };
 
   const email = localStorage.getItem("email")
   useEffect(() => {
+    const fetchCities = async () => {
+      const cityres = await axios.get("http://localhost:5000/api/city");
+      setCities(cityres.data.cities);
+    };
+    fetchCities();
     const fetchProfile = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/api/oneuser/${email}`);
 
         if (response.status === 200) {
           const profileData = response.data.oneuser;
-          setProfilePic('./assets/images/' + profileData.profilePic)
+          const pp = require('./assets/images/' + profileData.profilePic)
+          setProfilePic(pp)
+
 
           for (const [field, value] of Object.entries(profileData)) {
             dispatch({ field, value });
@@ -88,7 +125,8 @@ export default function EditProfile() {
       <div className='relative w-44 h-44 group'>
         <img
           className='rounded-full w-44 h-44'
-          src={state.profilePic ? require(`./assets/images/${state.profilePic}`) : require('./assets/images/default.png')}
+          src={profilePic}
+          // src={state.profilePic ? require(`./assets/images/${state.profilePic}`) : require('./assets/images/default.png')}
           alt='Profile'
         />
 
@@ -115,45 +153,34 @@ export default function EditProfile() {
           placeholder='Username'
           value={state.username}
           onChange={handleChange}
-          className='w-96 placeholder-amber-950 bg-transparent text-amber-800 border bottom-1 border-amber-800 rounded-xl my-3 py-1 px-3'
-        />
-        <input
-          type='email'
-          name='email'
-          placeholder='Email'
-          value={state.email}
-          onChange={handleChange}
-          className='w-96 placeholder-amber-950 bg-transparent text-amber-800 border bottom-1 border-amber-800 rounded-xl my-3 py-1 px-3'
+          className='w-96 placeholder-slate-600 bg-transparent text-slate-300 border bottom-1 border-slate-400 rounded-xl my-3 py-1 px-3'
         />
         <input
           type='text'
-          name='city'
+          name="city"
           placeholder='City Name'
           value={state.city}
-          onChange={handleChange}
-          className='w-96 placeholder-amber-950 bg-transparent text-amber-800 border bottom-1 border-amber-800 rounded-xl my-3 py-1 px-3'
+          onChange={handleCityInput}
+          className='w-full placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl my-3 py-1 px-3'
         />
-        <input
-          type='text'
-          name='state'
-          placeholder='State Name'
-          value={state.state}
-          onChange={handleChange}
-          className='w-96 placeholder-amber-950 bg-transparent text-amber-800 border bottom-1 border-amber-800 rounded-xl my-3 py-1 px-3'
-        />
-        <input
-          type='text'
-          name='country'
-          placeholder='Country Name'
-          value={state.country}
-          onChange={handleChange}
-          className='w-96 placeholder-amber-950 bg-transparent text-amber-800 border bottom-1 border-amber-800 rounded-xl my-3 py-1 px-3'
-        />
+        {filteredCities.length > 0 && (
+          <ul className="w-96 bg-white shadow-lg max-h-40 overflow-y-auto rounded-lg">
+            {filteredCities.map((city) => (
+              <li
+                key={city.cityName}
+                onClick={() => handleCitySelect(city)}
+                className="px-3 py-2 cursor-pointer hover:bg-slate-300"
+              >
+                {city.cityName}, {city.stateID.stateName}, {city.countryID.countryName}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       <button
         onClick={handleEditProfile}
-        className='bg-amber-950 text-amber-700 px-3 py-1 rounded-2xl mt-3 mb-4 mx-3'
+        className='text-xs bg-slate-500  text-slate-900 hover:bg-slate-700 hover:text-slate-200 px-3 py-1 rounded-2xl mt-3 mb-4'
       >
         Edit Profile
       </button>

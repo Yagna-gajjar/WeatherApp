@@ -3,153 +3,166 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function DisplayWeather() {
-    const city_id = localStorage.getItem("city_id");
+    const [Loader, setLoader] = useState(false);
+    const [city_id, setCity_id] = useState(localStorage.getItem("city_id"));
     const role = localStorage.getItem("role");
-
-    const onecity = {
+    const oneCity = {
         cityName: "",
-        state: "",
-        country: "",
+        stateName: "",
+        countryName: "",
+        date: Date,
         temperature: []
     };
-
-    const [onecityData, setOneCityData] = useState(onecity);
-    const [citiesData, setCitiesData] = useState([]);
+    const [onecityData, setOneCityData] = useState(oneCity);
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredCities, setFilteredCities] = useState([]);
+    const [citiesData, setCitiesData] = useState([]);
+    const [datelist, setDatelist] = useState([]);
+    const [date, setDate] = useState("2024-12-03");
 
     useEffect(() => {
         const fetchDataofyourcity = async () => {
-            const response = await axios.get('http://localhost:5000/api/cityone/' + city_id);
-            setOneCityData(response.data.city);
+            setLoader(true);
+            try {
+                const response = await axios.get(`http://localhost:5000/api/Tempcitydatewise/${city_id}/${date}`);
+                const newCityData = {
+                    cityName: response.data.temp.cityID.cityName,
+                    stateName: response.data.temp.stateID.stateName,
+                    countryName: response.data.temp.countryID.countryName,
+                    date: response.data.temp.date,
+                    temperature: response.data.temp.temperature,
+                };
+                setOneCityData(newCityData);
+            } catch (error) {
+                console.error('Error fetching city data:', error);
+                setOneCityData({});
+            } finally {
+                setLoader(false);
+            }
         };
-        fetchDataofyourcity();
 
         const fetchDataofallcity = async () => {
-            const response = await axios.get('http://localhost:5000/api/city');
-            setCitiesData(response.data.cities);
-            setFilteredCities(response.data.cities);
+            setLoader(true);
+            try {
+                const response = await axios.get(`http://localhost:5000/api/Tempdatewise/${date}`);
+                const newCitiesData = response.data.temp.map(res => ({
+                    cityName: res.cityID.cityName,
+                    stateName: res.stateID.stateName,
+                    countryName: res.countryID.countryName,
+                    date: res.date,
+                    temperature: res.temperature
+                }));
+
+                setCitiesData([...newCitiesData]);
+                setFilteredCities([...newCitiesData]);
+            } catch (error) {
+                console.error('Error fetching all city data:', error);
+            } finally {
+                setLoader(false);
+            }
         };
+
+        const fetchDates = async () => {
+            setLoader(true);
+            try {
+                const response = await axios.get('http://localhost:5000/api/listDates');
+                setDatelist([...response.data.dates]);
+            } catch (error) {
+                console.error('Error fetching dates:', error);
+            } finally {
+                setLoader(false);
+            }
+        };
+
+        fetchDataofyourcity();
         fetchDataofallcity();
-    }, [city_id]);
+        fetchDates();
+
+    }, [city_id, date]);
 
     const handleSearchChange = (e) => {
         const query = e.target.value.toLowerCase();
         setSearchQuery(query);
-
         const filtered = citiesData.filter(city =>
             city.cityName.toLowerCase().includes(query) ||
-            city.state.toLowerCase().includes(query) ||
-            city.country.toLowerCase().includes(query)
+            city.stateName.toLowerCase().includes(query) ||
+            city.countryName.toLowerCase().includes(query)
         );
         setFilteredCities(filtered);
     };
-    const nav = useNavigate()
-    const handleAddCity = () => {
-        nav('/addeditCity')
-    };
 
-    const handleEditCity = (cityId) => {
-        nav(`/addeditCity/${cityId}`);
-    };
-
-    const handleDeleteCity = async (cityId) => {
-        const confirmDelete = window.confirm(`Are you sure you want to delete the city`);
-        if (!confirmDelete) return;
-
-        try {
-            const response = await axios.delete(`http://localhost:5000/api/city/${cityId}`);
-            setCitiesData(citiesData.filter((city) => city._id !== cityId));
-            setFilteredCities(filteredCities.filter((city) => city._id !== cityId))
-        } catch (error) {
-            console.error('Error deleting city:', error);
-            alert('Failed to delete the city. Please try again.');
-        }
-    };
+    const nav = useNavigate();
 
     return (
         <div className='w-3/4 flex flex-col items-center h-screen'>
-            <div className='text-amber-800 w-full mb-5 p-5'>
-                <p className='text-2xl'>Your City: <span>{onecityData.cityName}</span><span className='text-sm'>, {onecityData.state}</span><span className='text-sm'>, {onecityData.country}</span></p>
-                <div className='text-xl flex overflow-x-scroll'>
-                    {onecityData.temperature.length > 0 ? (
+            {Loader && <div className="loader">Loading...</div>}
+            <div className='text-slate-400 w-full mb-5 p-5'>
+                <div className='flex justify-between items-center'>
+                    <p className='text-2xl'>Your City: <span>{onecityData.cityName}</span><span className='text-sm'>, {onecityData.stateName}</span><span className='text-sm'>, {onecityData.countryName}</span></p>
+                    <p className=''>
+                        <select
+                            value={date}
+                            onChange={(e) => {
+                                setDate(e.target.value);
+                            }} className='bg-slate-400 bg-opacity-25 text-slate-300 focus:outline-none focus:ring-1 focus:ring-slate-500 focus:border-slate-500'>
+                            {datelist.map((date, index) => {
+                                return (
+                                    <option key={index} className='bg-slate-500 text-slate-200' value={date.split('T')[0]}>
+                                        {date.split('T')[0]}
+                                    </option>
+                                );
+                            })}
+                        </select>
+
+                    </p>
+                </div>
+                <div className="flex overflow-x-auto">
+                    {onecityData.temperature && onecityData.temperature.length > 0 ? (
                         onecityData.temperature.map((temp, index) => (
-                            <div key={index} className='px-8 py-3 m-3 rounded-2xl bg-amber-900 bg-opacity-35'>
-                                <div className="text-center text-sm pb-4 flex items-center justify-center">
-                                    <span>hour:</span>
-                                    <span className="ml-1">{index + 1}</span>
-                                </div>
-                                <p>{temp}°C</p>
+                            <div
+                                key={index}
+                                className="bg-slate-400 bg-opacity-25 rounded-xl py-3 m-3 text-center min-w-32 h-24 flex flex-col justify-between items-center"
+                            >
+                                <span>{temp.range}</span>
+                                <span>{temp.temperature}°C</span>
                             </div>
                         ))
                     ) : (
-                        <span>No temperature data available.</span>
+                        <p className='text-slate-400 flex justify-center items-center'>No temperature data available</p>
                     )}
                 </div>
+
             </div>
             <div className='w-2/3'>
                 <input
                     placeholder='Search city'
-                    className='border placeholder-amber-900 w-full border-amber-800 bg-amber-800 rounded-2xl outline-none text-amber-700 px-5 py-1 bg-opacity-25'
+                    className='border placeholder-slate-500 w-full border-slate-400 bg-slate-400 rounded-2xl outline-none text-slate-400 px-5 py-1 bg-opacity-25'
                     value={searchQuery}
                     onChange={handleSearchChange}
                 />
-
             </div>
-            {role === "admin" && (
-                <button
-                    className='mt-3 bg-amber-800 text-white px-4 py-2 rounded-xl'
-                    onClick={handleAddCity}
-                >
-                    Add City
-                </button>
-            )}
             <div className='w-full overflow-y-scroll mt-5'>
                 {
                     filteredCities.length > 0 ? (
                         filteredCities.map((city, index) => (
-                            <div key={index} className='text-amber-800 w-full px-5'>
-                                <div className='flex '>
-                                    <p className='text-2xl'>{city.cityName}<span className='text-sm'>, {city.state}</span><span className='text-sm'>, {city.country}</span></p>
-
-                                    {role === "admin" && (
-                                        <div className='flex space-x-3 mt-2 mx-3'>
-                                            <button
-                                                className='bg-blue-950 text-white px-3 py-1 rounded-lg'
-                                                onClick={() => handleEditCity(city._id)}
-                                            >
-                                                Edit
-                                            </button>
-                                            <button
-                                                className='bg-red-950 text-white px-3 py-1 rounded-lg'
-                                                onClick={() => handleDeleteCity(city._id)}
-                                            >
-                                                Delete
-                                            </button>
-                                        </div>
-                                    )}
-                                </div>
-                                <div className='text-xl flex overflow-x-scroll'>
-
-                                    {city.temperature.length > 0 ? (
-                                        city.temperature.map((temp, index) => (
-                                            <div key={index} className='px-8 py-3 m-3 rounded-2xl bg-amber-900 bg-opacity-35'>
-                                                <div className="text-center text-sm pb-4 flex items-center justify-center">
-                                                    <span>hour:</span>
-                                                    <span className="ml-1">{index + 1}</span>
+                            <div key={index} className='text-slate-400 w-full px-5'>
+                                <div className=''>
+                                    <p className='text-2xl'>{city.cityName}<span className='text-sm'>, {city.stateName}</span><span className='text-sm'>, {city.countryName}</span></p>
+                                    <div className='flex overflow-x-auto'>
+                                        {
+                                            city.temperature.map((temp, index) => (
+                                                <div key={index} className='bg-slate-400 bg-opacity-25 rounded-xl py-3 m-3 text-center min-w-32 h-24 flex flex-col justify-between items-center'>
+                                                    {temp.range}
+                                                    <p>{temp.temperature}°C</p>
                                                 </div>
-                                                <p>{temp}°C</p>
-                                            </div>
-                                        ))
-                                    ) : (
-                                        <span>No temperature data available.</span>
-                                    )}
+                                            ))
+                                        }
+                                    </div>
                                 </div>
-
                             </div>
                         ))
                     ) : (
-                        <span>No Cities data found</span>
+                        <span className='text-slate-400 flex justify-center items-center'>No Cities data found</span>
                     )
                 }
             </div>
