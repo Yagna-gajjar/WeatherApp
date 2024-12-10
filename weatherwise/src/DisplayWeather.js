@@ -24,7 +24,7 @@ export default function DisplayWeather() {
         const fetchDataofyourcity = async () => {
             setLoader(true);
             try {
-                const response = await axios.get(`http://localhost:5000/api/Tempcitydatewise/${city_id}/${date}`);
+                const response = await axios.get(`https://weatherapp-dnc3.onrender.com/api/Tempcitydatewise/${city_id}/${date}`);
                 const newCityData = {
                     cityName: response.data.temp.cityID.cityName,
                     stateName: response.data.temp.stateID.stateName,
@@ -44,7 +44,7 @@ export default function DisplayWeather() {
         const fetchDataofallcity = async () => {
             setLoader(true);
             try {
-                const response = await axios.get(`http://localhost:5000/api/Tempdatewise/${date}`);
+                const response = await axios.get(`https://weatherapp-dnc3.onrender.com/api/Tempdatewise/${date}`);
                 const newCitiesData = response.data.temp.map(res => ({
                     cityName: res.cityID.cityName,
                     stateName: res.stateID.stateName,
@@ -65,7 +65,7 @@ export default function DisplayWeather() {
         const fetchDates = async () => {
             setLoader(true);
             try {
-                const response = await axios.get('http://localhost:5000/api/listDates');
+                const response = await axios.get('https://weatherapp-dnc3.onrender.com/api/listDates');
                 setDatelist([...response.data.dates]);
             } catch (error) {
                 console.error('Error fetching dates:', error);

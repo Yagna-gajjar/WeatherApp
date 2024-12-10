@@ -26,7 +26,7 @@ const WeatherTable = () => {
     }, []);
 
     const fetchWeatherData = async () => {
-        const response = await axios.get("http://localhost:5000/api/AllTemp");
+        const response = await axios.get("https://weatherapp-dnc3.onrender.com/api/AllTemp");
         const enrichedData = response.data.temp.map((item) => ({
             ...item,
             cityName: item.cityID?.cityName || "N/A",
@@ -47,7 +47,7 @@ const WeatherTable = () => {
         setFilteredCities(filtered);
     };
     const fetchDropdownData = async () => {
-        const cities = await axios.get("http://localhost:5000/api/city");
+        const cities = await axios.get("https://weatherapp-dnc3.onrender.com/api/city");
         setCityList(cities.data.cities);
     };
 
@@ -99,7 +99,7 @@ const WeatherTable = () => {
     );
 
     const handleDelete = async (id) => {
-        await axios.delete(`http://localhost:5000/api/deleteTemp/${id}`);
+        await axios.delete(`https://weatherapp-dnc3.onrender.com/api/deleteTemp/${id}`);
         fetchWeatherData();
     };
 
@@ -107,8 +107,8 @@ const WeatherTable = () => {
         e.preventDefault();
 
         const url = formData.id
-            ? `http://localhost:5000/api/editTemp/${formData.id}`
-            : "http://localhost:5000/api/addTemp";
+            ? `https://weatherapp-dnc3.onrender.com/api/editTemp/${formData.id}`
+            : "https://weatherapp-dnc3.onrender.com/api/addTemp";
 
 
         await axios.post(url, formData);

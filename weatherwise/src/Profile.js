@@ -31,7 +31,7 @@ export default function Profile() {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/oneuser/${email}`);
+                const response = await axios.get(`https://weatherapp-dnc3.onrender.com/api/oneuser/${email}`);
 
                 if (response.status === 200) {
                     const profileData = response.data.oneuser;

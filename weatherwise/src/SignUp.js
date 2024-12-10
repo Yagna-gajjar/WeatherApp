@@ -35,7 +35,7 @@ export default function SignUp() {
 
     useEffect(() => {
         const fetchCities = async () => {
-            const cityres = await axios.get("http://localhost:5000/api/city");
+            const cityres = await axios.get("https://weatherapp-dnc3.onrender.com/api/city");
             setCities(cityres.data.cities);
         };
         fetchCities();
@@ -94,7 +94,7 @@ export default function SignUp() {
             formData.append('profilePic', file.name || 'default.png');
             formData.append('file', file);
 
-            const response = await axios.post("http://localhost:5000/api/signup", formData, {
+            const response = await axios.post("https://weatherapp-dnc3.onrender.com/api/signup", formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 
