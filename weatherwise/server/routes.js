@@ -3,7 +3,6 @@ import { signup, signin, upload } from './controller/authController.js';
 import { addCity, addCountry, addState, deleteCity, getAllCities, getAllCountry, getAllState, getCityById, updateCity } from './controller/cityController.js';
 import { editUser, getUserByEmail } from './controller/userController.js';
 import { addTemperature, deleteTemp, displayTempcitydatewise, displayTempcitywise, displayTempdatewise, displayWeather, editTemperature, listAllDates } from './controller/tempComtroller.js';
-import { Route } from 'react-router-dom';
 
 const router = express.Router();
 
