@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function DisplayWeather() {
-    const [Loader, setLoader] = useState(false);
     const [city_id, setCity_id] = useState(localStorage.getItem("city_id"));
     const role = localStorage.getItem("role");
     const oneCity = {
@@ -22,9 +22,9 @@ export default function DisplayWeather() {
 
     useEffect(() => {
         const fetchDataofyourcity = async () => {
-            setLoader(true);
+
             try {
-                const response = await axios.get(`https://weatherapp-dnc3.onrender.com/api/Tempcitydatewise/${city_id}/${date}`);
+                const response = await axios.get(`http://localhost:5000/api/Tempcitydatewise/${city_id}/${date}`);
                 const newCityData = {
                     cityName: response.data.temp.cityID.cityName,
                     stateName: response.data.temp.stateID.stateName,
@@ -37,14 +37,14 @@ export default function DisplayWeather() {
                 console.error('Error fetching city data:', error);
                 setOneCityData({});
             } finally {
-                setLoader(false);
+
             }
         };
 
         const fetchDataofallcity = async () => {
-            setLoader(true);
+
             try {
-                const response = await axios.get(`https://weatherapp-dnc3.onrender.com/api/Tempdatewise/${date}`);
+                const response = await axios.get(`http://localhost:5000/api/Tempdatewise/${date}`);
                 const newCitiesData = response.data.temp.map(res => ({
                     cityName: res.cityID.cityName,
                     stateName: res.stateID.stateName,
@@ -58,19 +58,19 @@ export default function DisplayWeather() {
             } catch (error) {
                 console.error('Error fetching all city data:', error);
             } finally {
-                setLoader(false);
+
             }
         };
 
         const fetchDates = async () => {
-            setLoader(true);
+
             try {
-                const response = await axios.get('https://weatherapp-dnc3.onrender.com/api/listDates');
+                const response = await axios.get('http://localhost:5000/api/listDates');
                 setDatelist([...response.data.dates]);
             } catch (error) {
                 console.error('Error fetching dates:', error);
             } finally {
-                setLoader(false);
+
             }
         };
 
@@ -95,7 +95,6 @@ export default function DisplayWeather() {
 
     return (
         <div className='w-3/4 flex flex-col items-center h-screen'>
-            {Loader && <div className="loader">Loading...</div>}
             <div className='text-slate-400 w-full mb-5 p-5'>
                 <div className='flex justify-between items-center'>
                     <p className='text-2xl'>Your City: <span>{onecityData.cityName}</span><span className='text-sm'>, {onecityData.stateName}</span><span className='text-sm'>, {onecityData.countryName}</span></p>

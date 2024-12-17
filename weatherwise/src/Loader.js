@@ -1,20 +1,11 @@
 import React from 'react';
-import BallTriangle from "react-spinners/BallTriangle";
-import './Loader.css';
 
 export default function Loader() {
 
     return (
-        <div className='flex justify-center items-center'>
-            <BallTriangle
-                height={100}
-                width={100}
-                radius={5}
-                ariaLabel="ball-triangle-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-            />
+        <div className='flex justify-center items-center h-screen'>
+            <div class="relative w-24 h-24 rounded-full bg-[conic-gradient(var(--tw-gradient-stops))] from-transparent from-75% to-slate-200 to-25% animate-spin"></div>
+            <div className='absolute w-20 h-20 rounded-full bg-[var(--primary)]'></div>
         </div>
     );
 }

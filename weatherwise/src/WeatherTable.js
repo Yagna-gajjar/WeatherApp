@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Loader from "./Loader";
 
 const WeatherTable = () => {
+    const [loading, setLoading] = useState(true);
     const [weatherData, setWeatherData] = useState([]);
     const [cityList, setCityList] = useState([]);
     const [sortBy, setSortBy] = useState({ field: "date", order: "asc" });
@@ -20,13 +22,15 @@ const WeatherTable = () => {
 
     const [currentTimeRange, setCurrentTimeRange] = useState("00:00-06:00");
 
-    useEffect(() => {
-        fetchDropdownData();
-        fetchWeatherData();
+    useEffect(async () => {
+        setLoading(true);
+        await fetchDropdownData();
+        await fetchWeatherData();
+        setLoading(false);
     }, []);
 
     const fetchWeatherData = async () => {
-        const response = await axios.get("https://weatherapp-dnc3.onrender.com/api/AllTemp");
+        const response = await axios.get("http://localhost:5000/api/AllTemp");
         const enrichedData = response.data.temp.map((item) => ({
             ...item,
             cityName: item.cityID?.cityName || "N/A",
@@ -47,7 +51,7 @@ const WeatherTable = () => {
         setFilteredCities(filtered);
     };
     const fetchDropdownData = async () => {
-        const cities = await axios.get("https://weatherapp-dnc3.onrender.com/api/city");
+        const cities = await axios.get("http://localhost:5000/api/city");
         setCityList(cities.data.cities);
     };
 
@@ -99,7 +103,7 @@ const WeatherTable = () => {
     );
 
     const handleDelete = async (id) => {
-        await axios.delete(`https://weatherapp-dnc3.onrender.com/api/deleteTemp/${id}`);
+        await axios.delete(`http://localhost:5000/api/deleteTemp/${id}`);
         fetchWeatherData();
     };
 
@@ -107,8 +111,8 @@ const WeatherTable = () => {
         e.preventDefault();
 
         const url = formData.id
-            ? `https://weatherapp-dnc3.onrender.com/api/editTemp/${formData.id}`
-            : "https://weatherapp-dnc3.onrender.com/api/addTemp";
+            ? `http://localhost:5000/api/editTemp/${formData.id}`
+            : "http://localhost:5000/api/addTemp";
 
 
         await axios.post(url, formData);
@@ -141,19 +145,21 @@ const WeatherTable = () => {
             temperature: data.temperature.filter((_, i) => i != index),
         }));
     }
-
+    const [range, setRange] = useState('00:00-01:00');
     const handleTemperatureChange = (index, field, value) => {
+        if (field == 'time') {
+            setRange(value.split(":")[0] + ":00 - " + (parseInt(value.split(":")[0]) + 1).toString().padStart(2, '0') + ":00")
+        }
         const updatedTemperature = formData.temperature.map((entry, i) =>
             i === index
-                ? { ...entry, [field]: value, range: index.toString().padStart(2, '0') + ":00 - " + (index + 1).toString().padStart(2, '0') + ":00" }
+                ? { ...entry, [field]: value, range: range }
                 : entry
         );
-
         setFormData({ ...formData, temperature: updatedTemperature });
     };
 
     return (
-        <div className="p-6 bg-gray-100 m-16 rounded-md">
+        loading ? (<Loader />) : (<div className="p-6 bg-gray-100 m-16 rounded-md">
             <h1 className="text-2xl font-bold text-slate-700 mb-4">Weather Details</h1>
             <form onSubmit={handleAddEdit} className="mb-6 grid gap-4">
                 <div className="grid grid-cols-5 gap-4">
@@ -306,7 +312,7 @@ const WeatherTable = () => {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div>)
 
     );
 };

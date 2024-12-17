@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 export default function PvtRoute({ children }) {
     const nav = useNavigate();
-    const email = localStorage.getItem('email')
+    const token = localStorage.getItem('token')
     useEffect(() => {
-        if (!email) {
+        if (!token) {
             nav('/signin')
         }
-    }, [email, nav])
-    return email ? children : nav('/signin');
+    }, [token, nav])
+    return token ? children : nav('/signin');
 }      

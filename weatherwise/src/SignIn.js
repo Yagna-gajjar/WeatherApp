@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux';
+
 
 export default function SignIn() {
     const [user, setUser] = useState({
@@ -11,6 +13,8 @@ export default function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
+    const value = useSelector((s) => s.globalValue.value);
+    console.log(value);
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUser({ ...user, [name]: value });
@@ -22,14 +26,14 @@ export default function SignIn() {
 
     const handleSignIn = async () => {
         try {
-            const response = await axios.post('https://weatherapp-dnc3.onrender.com/api/signin', {
+            const response = await axios.post('http://localhost:5000/api/signin', {
                 email: user.email,
                 password: user.password
             });
 
             if (response.status === 200) {
-
                 localStorage.setItem("email", response.data.user.email);
+                localStorage.setItem("token", response.data.token);
                 localStorage.setItem("city_id", response.data.citydata._id);
                 localStorage.setItem("role", response.data.user.role);
                 navigate('/index');

@@ -50,7 +50,7 @@ export default function EditProfile() {
 
     try {
       const response = await axios.put(
-        `https://weatherapp-dnc3.onrender.com/api/editprofile/${email}`,
+        `http://localhost:5000/api/editprofile/${email}`,
         profileData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       }
@@ -94,13 +94,13 @@ export default function EditProfile() {
   const email = localStorage.getItem("email")
   useEffect(() => {
     const fetchCities = async () => {
-      const cityres = await axios.get("https://weatherapp-dnc3.onrender.com/api/city");
+      const cityres = await axios.get("http://localhost:5000/api/city");
       setCities(cityres.data.cities);
     };
     fetchCities();
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`https://weatherapp-dnc3.onrender.com/api/oneuser/${email}`);
+        const response = await axios.get(`http://localhost:5000/api/oneuser/${email}`);
 
         if (response.status === 200) {
           const profileData = response.data.oneuser;

@@ -28,7 +28,6 @@ function App() {
             <WeatherTable />
           </PvtRoute>
         } />
-
       </Routes>
     </BrowserRouter>
   );
