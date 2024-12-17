@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import Loader from "./Loader"
+// import { useSelector, useDispatch } from 'react-redux';
 
 export default function DisplayWeather() {
+    const [loading, setLoading] = useState(true);
     const [city_id, setCity_id] = useState(localStorage.getItem("city_id"));
     const role = localStorage.getItem("role");
     const oneCity = {
@@ -21,64 +22,56 @@ export default function DisplayWeather() {
     const [date, setDate] = useState("2024-12-03");
 
     useEffect(() => {
-        const fetchDataofyourcity = async () => {
-
-            try {
-                const response = await axios.get(`http://localhost:5000/api/Tempcitydatewise/${city_id}/${date}`);
-                const newCityData = {
-                    cityName: response.data.temp.cityID.cityName,
-                    stateName: response.data.temp.stateID.stateName,
-                    countryName: response.data.temp.countryID.countryName,
-                    date: response.data.temp.date,
-                    temperature: response.data.temp.temperature,
-                };
-                setOneCityData(newCityData);
-            } catch (error) {
-                console.error('Error fetching city data:', error);
-                setOneCityData({});
-            } finally {
-
-            }
-        };
-
-        const fetchDataofallcity = async () => {
-
-            try {
-                const response = await axios.get(`http://localhost:5000/api/Tempdatewise/${date}`);
-                const newCitiesData = response.data.temp.map(res => ({
-                    cityName: res.cityID.cityName,
-                    stateName: res.stateID.stateName,
-                    countryName: res.countryID.countryName,
-                    date: res.date,
-                    temperature: res.temperature
-                }));
-
-                setCitiesData([...newCitiesData]);
-                setFilteredCities([...newCitiesData]);
-            } catch (error) {
-                console.error('Error fetching all city data:', error);
-            } finally {
-
-            }
-        };
-
-        const fetchDates = async () => {
-
-            try {
-                const response = await axios.get('http://localhost:5000/api/listDates');
-                setDatelist([...response.data.dates]);
-            } catch (error) {
-                console.error('Error fetching dates:', error);
-            } finally {
-
-            }
-        };
-
+        setLoading(true)
         fetchDataofyourcity();
         fetchDataofallcity();
         fetchDates();
-
+        setLoading(false)
     }, [city_id, date]);
+
+    const fetchDataofyourcity = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5000/api/Tempcitydatewise/${city_id}/${date}`);
+            const newCityData = {
+                cityName: response.data.temp.cityID.cityName,
+                stateName: response.data.temp.cityID.stateID.stateName,
+                countryName: response.data.temp.cityID.countryID.countryName,
+                date: response.data.temp.date,
+                temperature: response.data.temp.temperature,
+            };
+            setOneCityData(newCityData);
+        } catch (error) {
+            console.error('Error fetching city data:', error);
+            setOneCityData({});
+        }
+    };
+
+    const fetchDataofallcity = async () => {
+        try {
+            const response = await axios.get(`http://localhost:5000/api/Tempdatewise/${date}`);
+            const newCitiesData = response.data.temp.map(res => ({
+                cityName: res.cityID.cityName,
+                stateName: res.cityID.stateID.stateName,
+                countryName: res.cityID.countryID.countryName,
+                date: res.date,
+                temperature: res.temperature
+            }));
+
+            setCitiesData([...newCitiesData]);
+            setFilteredCities([...newCitiesData]);
+        } catch (error) {
+            console.error('Error fetching all city data:', error);
+        }
+    };
+
+    const fetchDates = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/listDates');
+            setDatelist([...response.data.dates]);
+        } catch (error) {
+            console.error('Error fetching dates:', error);
+        }
+    };
 
     const handleSearchChange = (e) => {
         const query = e.target.value.toLowerCase();
@@ -91,10 +84,8 @@ export default function DisplayWeather() {
         setFilteredCities(filtered);
     };
 
-    const nav = useNavigate();
-
     return (
-        <div className='w-3/4 flex flex-col items-center h-screen'>
+        loading ? (<Loader />) : (<div className='w-3/4 flex flex-col items-center h-screen'>
             <div className='text-slate-400 w-full mb-5 p-5'>
                 <div className='flex justify-between items-center'>
                     <p className='text-2xl'>Your City: <span>{onecityData.cityName}</span><span className='text-sm'>, {onecityData.stateName}</span><span className='text-sm'>, {onecityData.countryName}</span></p>
@@ -161,10 +152,10 @@ export default function DisplayWeather() {
                             </div>
                         ))
                     ) : (
-                        <span className='text-slate-400 flex justify-center items-center'>No Cities data found</span>
+                        <Loader />
                     )
                 }
             </div>
-        </div>
+        </div>)
     );
 }

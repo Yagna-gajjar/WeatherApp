@@ -3,9 +3,9 @@ import Temperature from "../model/temperatureModel.js";
 
 export const addTemperature = async (req, res) => {
     try {
-        const { cityID, stateID, countryID, date, temperature } = req.body;
+        const { cityID, date, temperature } = req.body;
         const newTemperature = new Temperature({
-            cityID, stateID, countryID, date, temperature
+            cityID, date, temperature
         })
         await newTemperature.save();
         res.status(201).json({ message: 'temperature added successfully' });
@@ -18,13 +18,13 @@ export const addTemperature = async (req, res) => {
 export const editTemperature = async (req, res) => {
     try {
         const { id } = req.params;
-        const { cityID, stateID, countryID, date, temperature } = req.body;
+        const { cityID, date, temperature } = req.body;
 
         console.log(temperature);
 
         const updatedTemp = await Temperature.findByIdAndUpdate(
             id,
-            { cityID, stateID, countryID, date, temperature },
+            { cityID, date, temperature },
             { new: true }
         );
 
@@ -60,7 +60,14 @@ export const deleteTemp = async (req, res) => {
 
 export const displayWeather = async (req, res) => {
     try {
-        const temp = await Temperature.find().populate('cityID', 'cityName').populate('stateID', 'stateName').populate('countryID', 'countryName');
+        const temp = await Temperature.find().populate({
+            path: 'cityID',
+            populate: [
+                { path: 'stateID', model: 'State', select: 'stateName' },
+                { path: 'countryID', model: 'Country', select: 'countryName' }
+            ]
+        })
+
         res.status(200).json({ message: 'temperatures retrieved successfully', temp });
     } catch (error) {
         console.error("Error showing temperature", error);
@@ -71,7 +78,13 @@ export const displayWeather = async (req, res) => {
 export const displayTempcitywise = async (req, res) => {
     try {
         const { id } = req.params;
-        const temp = await Temperature.find({ cityID: { _id: id } }).populate('cityID', 'cityName').populate('stateID', 'stateName').populate('countryID', 'countryName');
+        const temp = await Temperature.find({ cityID: { _id: id } }).populate({
+            path: 'cityID',
+            populate: [
+                { path: 'stateID', model: 'State', select: 'stateName' },
+                { path: 'countryID', model: 'Country', select: 'countryName' }
+            ]
+        });
         res.status(200).json({ message: 'temperatures retrieved successfully', temp });
     } catch (error) {
         console.error("Error showing temperature", error);
@@ -81,7 +94,13 @@ export const displayTempcitywise = async (req, res) => {
 export const displayTempdatewise = async (req, res) => {
     try {
         const { id, date } = req.params;
-        const temp = await Temperature.find({ date: date }).populate('cityID', 'cityName').populate('stateID', 'stateName').populate('countryID', 'countryName');
+        const temp = await Temperature.find({ date: date }).populate({
+            path: 'cityID',
+            populate: [
+                { path: 'stateID', model: 'State', select: 'stateName' },
+                { path: 'countryID', model: 'Country', select: 'countryName' }
+            ]
+        });
         res.status(200).json({ message: 'temperatures retrieved successfully', temp });
     } catch (error) {
         console.error("Error showing temperature", error);
@@ -91,7 +110,13 @@ export const displayTempdatewise = async (req, res) => {
 export const displayTempcitydatewise = async (req, res) => {
     try {
         const { id, date } = req.params;
-        const temp = await Temperature.findOne({ cityID: { _id: id }, date: date }).populate('cityID', 'cityName').populate('stateID', 'stateName').populate('countryID', 'countryName');
+        const temp = await Temperature.findOne({ cityID: { _id: id }, date: date }).populate({
+            path: 'cityID',
+            populate: [
+                { path: 'stateID', model: 'State', select: 'stateName' },
+                { path: 'countryID', model: 'Country', select: 'countryName' }
+            ]
+        });
         res.status(200).json({ message: 'temperatures retrieved successfully', temp });
     } catch (error) {
         console.error("Error showing temperature", error);
