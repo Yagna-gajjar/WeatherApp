@@ -36,11 +36,6 @@ export default function SideBar() {
         height: window.innerHeight,
     });
     const [isOpen, setIsOpen] = useState(false);
-
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
-
     useEffect(() => {
         const handleResize = () => {
             setScreenSize({
@@ -49,14 +44,25 @@ export default function SideBar() {
             });
         };
         window.addEventListener('resize', handleResize);
+
+        const toggleButton = (e) => {
+            if (e.target.id === 'button') {
+                setIsOpen(true);
+            } else {
+                setIsOpen(false);
+            }
+        };
+
+        window.addEventListener('click', toggleButton);
+
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('click', toggleButton);
         };
     }, []);
 
     return (
         screenSize.width >= 500 ?
-            (<div className="bg-primary w-fit rounded-2xl h-[99%] px-3 pt-2 min-[1130px]:px-4 min-[1130px]:pt-3 font-rubik">
+            (<div className="sidebar-container bg-primary w-fit rounded-2xl h-[99%] px-3 pt-2 min-[1130px]:px-4 min-[1130px]:pt-3 font-rubik">
                 <div className='w-12 min-[1130px]:w-14 pb-12'>
                     <img src={Logo} />
                 </div>
@@ -80,30 +86,26 @@ export default function SideBar() {
             </div >) : (
                 <div className='z-20'>
                     <div class="relative group">
-                        <button
-                            onClick={toggleDropdown}
-                            className="py-2 text-text focus:outline-none"
-                        >
-                            {isOpen ? (<div className='fill-text'>
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                    width="24"
-                                    height="24" viewBox="0 0 50 50">
-                                    <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
-                                </svg>
-                            </div>) : (<div className="fill-text">
-                                <svg id='button'
-                                    width="24"
-                                    height="24"
-                                >
-                                    <path
-                                        d="M5 6h14M5 12h14M5 18h14"
-                                        className="stroke-text"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                    ></path>
-                                </svg>
-                            </div>)}
-                        </button>
+
+                        {isOpen ? (
+                            <svg xmlns="http://www.w3.org/2000/svg" className='fill-text text-text focus:outline-none z-10' x="0px" y="0px"
+                                width="24"
+                                height="24" viewBox="0 0 50 50">
+                                <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+                            </svg>
+                        ) : (
+                            <svg className='fill-text text-text focus:outline-none z-10 ' id='button'
+                                width="24"
+                                height="24"
+                            >
+                                <path
+                                    d="M5 6h14M5 12h14M5 18h14"
+                                    className="stroke-text"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                ></path>
+                            </svg>
+                        )}
                         <div
                             className={`absolute z-10 left-0 mt-2 w-48 bg-secondary border border-secondary rounded-md shadow-lg transition-all duration-300 transform ${isOpen
                                 ? "opacity-100 visible scale-100"
