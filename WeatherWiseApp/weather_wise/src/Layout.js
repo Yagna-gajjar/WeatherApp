@@ -105,7 +105,7 @@ export default function Layout() {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
-                            <div className='absolute z-10 my-12 bg-primary px-3 rounded-xl'>{
+                            <div className='absolute z-10 my-12 bg-background px-3 rounded-xl'>{
                                 filteredCities.map((data) => {
                                     return (
                                         <p className='text-text font-bold text-base py-1'>{data.cityID.cityName},<span className='text-opacity-45 font-normal text-sm'>{data.cityID?.stateID.stateName},{data.cityID?.countryID.countryName}</span></p>
@@ -131,7 +131,7 @@ export default function Layout() {
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
-                        <div className='absolute z-10 my-12 bg-primary px-3 rounded-xl'>{
+                        <div className='absolute z-10 my-12 bg-background px-3 rounded-xl'>{
                             filteredCities.map((data) => {
                                 return (
                                     <p className='text-text font-bold text-base py-1'>{data.cityID.cityName},<span className='text-opacity-45 font-normal text-sm'>{data.cityID?.stateID.stateName},{data.cityID?.countryID.countryName}</span></p>
