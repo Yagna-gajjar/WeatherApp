@@ -2,56 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-.dark {
-    background-color: var(--background);
-    --background: #0b131e;
-    --primary: #202b3b;
-    --secondary: #9399a2;
-    --text: #dde0e4;
-    --border: #35455e;
+.night {
+  background-color: var(--background);
+  --background: #0b131e;
+  --primary: #202b3b;
+  --secondary: #9399a2;
+  --text: #dde0e4;
+  --border: #35455e;
 }
 
-.light {
-    background-color: var(--background);
-    --background: #ffedd5;
-    --primary: #fed7aa;
-    --secondary: #2d3134;
-    --text: #2d3134;
-    --border: #9399a2;
+.sunny {
+  background-color: var(--background);
+  --background: #ffedd5;
+  --primary: #fed7aa;
+  --secondary: #2d3134;
+  --text: #2d3134;
+  --border: #9399a2;
+}
 
+.cloudy {
+  background-color: var(--background);
+  --background: #cfe2ff;
+  --primary: #a6c8fc;
+  --secondary: #262f3c;
+  --text: #000f24;
+  --border: #7090c3;
 }
 
 body {
-    background-color: var(--background);
+  background-color: var(--background);
+}
+
+li {
+  transition: all 1s ease-in-out;
+}
+
+.modebutton {
+  animation: scaleDownUp 1s ease-in-out;
+}
+
+@keyframes scaleDownUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.7);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 1px;
+  width: 8px;
+  height: 1px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(71 85 105);
-    border-radius: 4px;
+  background-color: rgb(71 85 105);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 .sideBarAnimation {
-    animation: sidebar 1s forwards;
-    opacity: 1;
-    width: fit-content;
+  animation: sidebar 1s forwards;
+  opacity: 1;
+  width: fit-content;
 }
 
 @keyframes sidebar {
-    from {
-        height: 0px;
-        visibility: hidden;
-    }
-    to {
-        height: fit-content;
-        visibility: visible;
-    }
+  from {
+    height: 0px;
+    visibility: hidden;
+  }
+
+  to {
+    height: fit-content;
+    visibility: visible;
+  }
 }

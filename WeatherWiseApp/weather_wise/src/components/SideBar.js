@@ -62,7 +62,7 @@ export default function SideBar() {
 
     return (
         screenSize.width >= 500 ?
-            (<div className="sidebar-container bg-primary w-fit rounded-2xl h-[99%] px-3 pt-2 min-[1130px]:px-4 min-[1130px]:pt-3 font-rubik">
+            (<div className="sidebar-container bg-primary w-fit rounded-2xl h-[99%] pt-2 min-[1130px]:px-4 min-[1130px]:pt-3 font-rubik">
                 <div className='w-12 min-[1130px]:w-14 pb-12'>
                     <img src={Logo} />
                 </div>
@@ -70,14 +70,17 @@ export default function SideBar() {
                     {
                         sidebarNav.map((data, index) => {
                             return (
-                                <div className='flex flex-col items-center py-2' onClick={() => {
+                                <div className='' onClick={() => {
                                     setSelectedNav(data.name)
                                     handlenavigation(data.nav)
                                 }}>
-                                    <div className={`${selectedNav == data.name ? 'fill-text ' : 'fill-secondary'}`}>
-                                        {data.svg}
+                                    <div className={`flex flex-col items-center w-full py-5 hover:cursor-pointer text-xs font-rubik ${selectedNav == data.name ? 'fill-text text-text font-bold' : 'fill-text text-text opacity-35 hover:opacity-100'}`}>
+                                        <div>
+                                            {data.svg}
+                                        </div>
+                                        {/* <p className={`${selectedNav == data.name ? 'text-text font-bold' : 'text-text opacity-35 hover:opacity-100'} text-xs font-rubik  py-2`}>{data.name}</p> */}
+                                        <p>{data.name}</p>
                                     </div>
-                                    <p className={`${selectedNav == data.name ? 'text-text font-bold' : 'text-secondary'} text-xs font-rubik  py-2`}>{data.name}</p>
                                 </div>
                             );
                         })

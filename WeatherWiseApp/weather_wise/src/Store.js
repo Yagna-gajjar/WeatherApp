@@ -5,8 +5,8 @@ const modeSlice = createSlice({
     name: "mode",
     initialState: { value: localStorage.getItem('mode') || "light" },
     reducers: {
-        toggleMode: (state) => {
-            const newMode = state.value === "light" ? "dark" : "light";
+        changeMode: (state, modename) => {
+            const newMode = modename.payload;
             localStorage.setItem('mode', newMode);
             state.value = newMode;
         },
@@ -26,7 +26,7 @@ const apiSlice = createSlice({
     },
 });
 
-export const { toggleMode, setMode } = modeSlice.actions;
+export const { changeMode, setMode } = modeSlice.actions;
 export const { setApiUrl } = apiSlice.actions;
 
 const store = configureStore({
