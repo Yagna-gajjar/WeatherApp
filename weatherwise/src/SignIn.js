@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-// import { useSelector, useDispatch } from 'react-redux';
-
 
 export default function SignIn() {
     const [user, setUser] = useState({
@@ -12,9 +10,6 @@ export default function SignIn() {
     });
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
-
-    // const value = useSelector((s) => s.globalValue.value);
-    // console.log(value);
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUser({ ...user, [name]: value });

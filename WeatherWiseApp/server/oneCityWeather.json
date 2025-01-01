@@ -1,0 +1,1556 @@
+[
+    {
+        "cityID": "674e0418a6b239ebfb81958b",
+        "date": "2024-12-18",
+        "hourly": [
+            {
+                "time": "00:00",
+                "range": "00:00-01:00",
+                "temperature": 24.0,
+                "humidity": 85,
+                "windSpeed": 10,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "01:00",
+                "range": "01:00-02:00",
+                "temperature": 23.8,
+                "humidity": 86,
+                "windSpeed": 9,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "02:00",
+                "range": "02:00-03:00",
+                "temperature": 23.5,
+                "humidity": 87,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "03:00",
+                "range": "03:00-04:00",
+                "temperature": 23.2,
+                "humidity": 88,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "04:00",
+                "range": "04:00-05:00",
+                "temperature": 23.0,
+                "humidity": 89,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "05:00",
+                "range": "05:00-06:00",
+                "temperature": 22.8,
+                "humidity": 90,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "06:00",
+                "range": "06:00-07:00",
+                "temperature": 23.2,
+                "humidity": 88,
+                "windSpeed": 8,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "07:00",
+                "range": "07:00-08:00",
+                "temperature": 24.5,
+                "humidity": 85,
+                "windSpeed": 10,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "08:00",
+                "range": "08:00-09:00",
+                "temperature": 26.0,
+                "humidity": 80,
+                "windSpeed": 12,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "09:00",
+                "range": "09:00-10:00",
+                "temperature": 27.8,
+                "humidity": 75,
+                "windSpeed": 15,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "10:00",
+                "range": "10:00-11:00",
+                "temperature": 29.5,
+                "humidity": 70,
+                "windSpeed": 18,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "11:00",
+                "range": "11:00-12:00",
+                "temperature": 31.0,
+                "humidity": 65,
+                "windSpeed": 20,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "12:00",
+                "range": "12:00-13:00",
+                "temperature": 32.0,
+                "humidity": 60,
+                "windSpeed": 22,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "13:00",
+                "range": "13:00-14:00",
+                "temperature": 33.5,
+                "humidity": 55,
+                "windSpeed": 25,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "14:00",
+                "range": "14:00-15:00",
+                "temperature": 33.8,
+                "humidity": 50,
+                "windSpeed": 25,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "15:00",
+                "range": "15:00-16:00",
+                "temperature": 33.0,
+                "humidity": 52,
+                "windSpeed": 20,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "16:00",
+                "range": "16:00-17:00",
+                "temperature": 31.5,
+                "humidity": 58,
+                "windSpeed": 18,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "17:00",
+                "range": "17:00-18:00",
+                "temperature": 30.0,
+                "humidity": 65,
+                "windSpeed": 15,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "18:00",
+                "range": "18:00-19:00",
+                "temperature": 28.0,
+                "humidity": 70,
+                "windSpeed": 12,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "19:00",
+                "range": "19:00-20:00",
+                "temperature": 26.5,
+                "humidity": 75,
+                "windSpeed": 10,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "20:00",
+                "range": "20:00-21:00",
+                "temperature": 25.0,
+                "humidity": 80,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "21:00",
+                "range": "21:00-22:00",
+                "temperature": 24.0,
+                "humidity": 82,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "22:00",
+                "range": "22:00-23:00",
+                "temperature": 23.5,
+                "humidity": 84,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "23:00",
+                "range": "23:00-00:00",
+                "temperature": 23.0,
+                "humidity": 85,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            }
+        ]
+    },
+    {
+        "cityID": "674e0418a6b239ebfb81958b",
+        "date": "2024-12-19",
+        "hourly": [
+            {
+                "time": "00:00",
+                "range": "00:00-01:00",
+                "temperature": 25.0,
+                "humidity": 88,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "01:00",
+                "range": "01:00-02:00",
+                "temperature": 24.7,
+                "humidity": 89,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "02:00",
+                "range": "02:00-03:00",
+                "temperature": 24.4,
+                "humidity": 90,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "03:00",
+                "range": "03:00-04:00",
+                "temperature": 24.1,
+                "humidity": 91,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "04:00",
+                "range": "04:00-05:00",
+                "temperature": 23.8,
+                "humidity": 92,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "05:00",
+                "range": "05:00-06:00",
+                "temperature": 23.6,
+                "humidity": 93,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "06:00",
+                "range": "06:00-07:00",
+                "temperature": 24.0,
+                "humidity": 90,
+                "windSpeed": 6,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "07:00",
+                "range": "07:00-08:00",
+                "temperature": 25.5,
+                "humidity": 87,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "08:00",
+                "range": "08:00-09:00",
+                "temperature": 27.0,
+                "humidity": 83,
+                "windSpeed": 10,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "09:00",
+                "range": "09:00-10:00",
+                "temperature": 28.6,
+                "humidity": 80,
+                "windSpeed": 12,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "10:00",
+                "range": "10:00-11:00",
+                "temperature": 30.2,
+                "humidity": 76,
+                "windSpeed": 14,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "11:00",
+                "range": "11:00-12:00",
+                "temperature": 31.8,
+                "humidity": 73,
+                "windSpeed": 16,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "12:00",
+                "range": "12:00-13:00",
+                "temperature": 33.1,
+                "humidity": 70,
+                "windSpeed": 18,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "13:00",
+                "range": "13:00-14:00",
+                "temperature": 34.0,
+                "humidity": 68,
+                "windSpeed": 20,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "14:00",
+                "range": "14:00-15:00",
+                "temperature": 33.6,
+                "humidity": 70,
+                "windSpeed": 18,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "15:00",
+                "range": "15:00-16:00",
+                "temperature": 32.5,
+                "humidity": 72,
+                "windSpeed": 16,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "16:00",
+                "range": "16:00-17:00",
+                "temperature": 31.2,
+                "humidity": 75,
+                "windSpeed": 14,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "17:00",
+                "range": "17:00-18:00",
+                "temperature": 29.8,
+                "humidity": 78,
+                "windSpeed": 12,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "18:00",
+                "range": "18:00-19:00",
+                "temperature": 28.3,
+                "humidity": 81,
+                "windSpeed": 10,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "19:00",
+                "range": "19:00-20:00",
+                "temperature": 27.0,
+                "humidity": 84,
+                "windSpeed": 9,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "20:00",
+                "range": "20:00-21:00",
+                "temperature": 26.2,
+                "humidity": 86,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "21:00",
+                "range": "21:00-22:00",
+                "temperature": 25.5,
+                "humidity": 88,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "22:00",
+                "range": "22:00-23:00",
+                "temperature": 25.1,
+                "humidity": 89,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "23:00",
+                "range": "23:00-00:00",
+                "temperature": 24.8,
+                "humidity": 90,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            }
+        ]
+    },
+    {
+        "cityID": "674e0418a6b239ebfb81958b",
+        "date": "2024-12-20",
+        "hourly": [
+            {
+                "time": "00:00",
+                "range": "00:00-01:00",
+                "temperature": 24.5,
+                "humidity": 87,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "01:00",
+                "range": "01:00-02:00",
+                "temperature": 24.3,
+                "humidity": 88,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "02:00",
+                "range": "02:00-03:00",
+                "temperature": 24.0,
+                "humidity": 89,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "03:00",
+                "range": "03:00-04:00",
+                "temperature": 23.8,
+                "humidity": 90,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "04:00",
+                "range": "04:00-05:00",
+                "temperature": 23.6,
+                "humidity": 91,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "05:00",
+                "range": "05:00-06:00",
+                "temperature": 23.3,
+                "humidity": 92,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "06:00",
+                "range": "06:00-07:00",
+                "temperature": 23.8,
+                "humidity": 90,
+                "windSpeed": 5,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "07:00",
+                "range": "07:00-08:00",
+                "temperature": 25.0,
+                "humidity": 86,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "08:00",
+                "range": "08:00-09:00",
+                "temperature": 26.4,
+                "humidity": 84,
+                "windSpeed": 9,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "09:00",
+                "range": "09:00-10:00",
+                "temperature": 28.2,
+                "humidity": 81,
+                "windSpeed": 11,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "10:00",
+                "range": "10:00-11:00",
+                "temperature": 29.9,
+                "humidity": 78,
+                "windSpeed": 13,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "11:00",
+                "range": "11:00-12:00",
+                "temperature": 31.3,
+                "humidity": 74,
+                "windSpeed": 15,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "12:00",
+                "range": "12:00-13:00",
+                "temperature": 32.8,
+                "humidity": 71,
+                "windSpeed": 16,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "13:00",
+                "range": "13:00-14:00",
+                "temperature": 33.5,
+                "humidity": 69,
+                "windSpeed": 17,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "14:00",
+                "range": "14:00-15:00",
+                "temperature": 33.2,
+                "humidity": 71,
+                "windSpeed": 16,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "15:00",
+                "range": "15:00-16:00",
+                "temperature": 32.1,
+                "humidity": 73,
+                "windSpeed": 14,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "16:00",
+                "range": "16:00-17:00",
+                "temperature": 30.8,
+                "humidity": 76,
+                "windSpeed": 12,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "17:00",
+                "range": "17:00-18:00",
+                "temperature": 29.4,
+                "humidity": 79,
+                "windSpeed": 11,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "18:00",
+                "range": "18:00-19:00",
+                "temperature": 28.1,
+                "humidity": 82,
+                "windSpeed": 10,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "19:00",
+                "range": "19:00-20:00",
+                "temperature": 27.0,
+                "humidity": 85,
+                "windSpeed": 9,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "20:00",
+                "range": "20:00-21:00",
+                "temperature": 26.3,
+                "humidity": 87,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "21:00",
+                "range": "21:00-22:00",
+                "temperature": 25.7,
+                "humidity": 89,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "22:00",
+                "range": "22:00-23:00",
+                "temperature": 25.3,
+                "humidity": 90,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "23:00",
+                "range": "23:00-00:00",
+                "temperature": 24.9,
+                "humidity": 91,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            }
+        ]
+    },
+    {
+        "cityID": "674e0418a6b239ebfb81958b",
+        "date": "2024-12-21",
+        "hourly": [
+            {
+                "time": "00:00",
+                "range": "00:00-01:00",
+                "temperature": 24.7,
+                "humidity": 88,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "01:00",
+                "range": "01:00-02:00",
+                "temperature": 24.4,
+                "humidity": 89,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "02:00",
+                "range": "02:00-03:00",
+                "temperature": 24.1,
+                "humidity": 90,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "03:00",
+                "range": "03:00-04:00",
+                "temperature": 23.9,
+                "humidity": 91,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "04:00",
+                "range": "04:00-05:00",
+                "temperature": 23.5,
+                "humidity": 92,
+                "windSpeed": 3,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "05:00",
+                "range": "05:00-06:00",
+                "temperature": 23.2,
+                "humidity": 93,
+                "windSpeed": 3,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "06:00",
+                "range": "06:00-07:00",
+                "temperature": 23.7,
+                "humidity": 91,
+                "windSpeed": 4,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "07:00",
+                "range": "07:00-08:00",
+                "temperature": 25.1,
+                "humidity": 88,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "08:00",
+                "range": "08:00-09:00",
+                "temperature": 26.8,
+                "humidity": 85,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "09:00",
+                "range": "09:00-10:00",
+                "temperature": 28.6,
+                "humidity": 82,
+                "windSpeed": 9,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "10:00",
+                "range": "10:00-11:00",
+                "temperature": 30.2,
+                "humidity": 79,
+                "windSpeed": 11,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "11:00",
+                "range": "11:00-12:00",
+                "temperature": 31.5,
+                "humidity": 76,
+                "windSpeed": 12,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "12:00",
+                "range": "12:00-13:00",
+                "temperature": 33.0,
+                "humidity": 73,
+                "windSpeed": 14,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "13:00",
+                "range": "13:00-14:00",
+                "temperature": 33.6,
+                "humidity": 71,
+                "windSpeed": 15,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "14:00",
+                "range": "14:00-15:00",
+                "temperature": 33.4,
+                "humidity": 72,
+                "windSpeed": 14,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "15:00",
+                "range": "15:00-16:00",
+                "temperature": 32.2,
+                "humidity": 74,
+                "windSpeed": 13,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "16:00",
+                "range": "16:00-17:00",
+                "temperature": 30.9,
+                "humidity": 77,
+                "windSpeed": 12,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "17:00",
+                "range": "17:00-18:00",
+                "temperature": 29.5,
+                "humidity": 80,
+                "windSpeed": 11,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "18:00",
+                "range": "18:00-19:00",
+                "temperature": 28.3,
+                "humidity": 83,
+                "windSpeed": 9,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "19:00",
+                "range": "19:00-20:00",
+                "temperature": 27.1,
+                "humidity": 86,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "20:00",
+                "range": "20:00-21:00",
+                "temperature": 26.5,
+                "humidity": 88,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "21:00",
+                "range": "21:00-22:00",
+                "temperature": 25.9,
+                "humidity": 89,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "22:00",
+                "range": "22:00-23:00",
+                "temperature": 25.5,
+                "humidity": 90,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "23:00",
+                "range": "23:00-00:00",
+                "temperature": 25.0,
+                "humidity": 91,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            }
+        ]
+    },
+    {
+        "cityID": "674e0418a6b239ebfb81958b",
+        "date": "2024-12-22",
+        "hourly": [
+            {
+                "time": "00:00",
+                "range": "00:00-01:00",
+                "temperature": 24.6,
+                "humidity": 87,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "01:00",
+                "range": "01:00-02:00",
+                "temperature": 24.3,
+                "humidity": 88,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "02:00",
+                "range": "02:00-03:00",
+                "temperature": 24.0,
+                "humidity": 89,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "03:00",
+                "range": "03:00-04:00",
+                "temperature": 23.8,
+                "humidity": 90,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "04:00",
+                "range": "04:00-05:00",
+                "temperature": 23.5,
+                "humidity": 91,
+                "windSpeed": 3,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "05:00",
+                "range": "05:00-06:00",
+                "temperature": 23.2,
+                "humidity": 92,
+                "windSpeed": 3,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "06:00",
+                "range": "06:00-07:00",
+                "temperature": 23.6,
+                "humidity": 91,
+                "windSpeed": 4,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "07:00",
+                "range": "07:00-08:00",
+                "temperature": 25.0,
+                "humidity": 88,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "08:00",
+                "range": "08:00-09:00",
+                "temperature": 26.7,
+                "humidity": 85,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "09:00",
+                "range": "09:00-10:00",
+                "temperature": 28.4,
+                "humidity": 82,
+                "windSpeed": 9,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "10:00",
+                "range": "10:00-11:00",
+                "temperature": 30.0,
+                "humidity": 79,
+                "windSpeed": 11,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "11:00",
+                "range": "11:00-12:00",
+                "temperature": 31.2,
+                "humidity": 76,
+                "windSpeed": 12,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "12:00",
+                "range": "12:00-13:00",
+                "temperature": 32.6,
+                "humidity": 73,
+                "windSpeed": 13,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "13:00",
+                "range": "13:00-14:00",
+                "temperature": 33.1,
+                "humidity": 71,
+                "windSpeed": 14,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "14:00",
+                "range": "14:00-15:00",
+                "temperature": 32.9,
+                "humidity": 72,
+                "windSpeed": 13,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "15:00",
+                "range": "15:00-16:00",
+                "temperature": 31.7,
+                "humidity": 74,
+                "windSpeed": 12,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "16:00",
+                "range": "16:00-17:00",
+                "temperature": 30.3,
+                "humidity": 77,
+                "windSpeed": 11,
+                "status": "Cloudy",
+                "status_image": "cloudy"
+            },
+            {
+                "time": "17:00",
+                "range": "17:00-18:00",
+                "temperature": 29.0,
+                "humidity": 80,
+                "windSpeed": 10,
+                "status": "Cloudy",
+                "status_image": "cloudy"
+            },
+            {
+                "time": "18:00",
+                "range": "18:00-19:00",
+                "temperature": 27.8,
+                "humidity": 83,
+                "windSpeed": 9,
+                "status": "Cloudy",
+                "status_image": "cloudy"
+            },
+            {
+                "time": "19:00",
+                "range": "19:00-20:00",
+                "temperature": 26.6,
+                "humidity": 85,
+                "windSpeed": 8,
+                "status": "Rainy",
+                "status_image": "rainy"
+            },
+            {
+                "time": "20:00",
+                "range": "20:00-21:00",
+                "temperature": 26.0,
+                "humidity": 87,
+                "windSpeed": 7,
+                "status": "Rainy",
+                "status_image": "rainy"
+            },
+            {
+                "time": "21:00",
+                "range": "21:00-22:00",
+                "temperature": 25.4,
+                "humidity": 89,
+                "windSpeed": 6,
+                "status": "Rainy",
+                "status_image": "rainy"
+            },
+            {
+                "time": "22:00",
+                "range": "22:00-23:00",
+                "temperature": 25.1,
+                "humidity": 90,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "23:00",
+                "range": "23:00-00:00",
+                "temperature": 24.7,
+                "humidity": 91,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            }
+        ]
+    },
+    {
+        "cityID": "674e0418a6b239ebfb81958b",
+        "date": "2024-12-23",
+        "hourly": [
+            {
+                "time": "00:00",
+                "range": "00:00-01:00",
+                "temperature": 24.9,
+                "humidity": 86,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "01:00",
+                "range": "01:00-02:00",
+                "temperature": 24.6,
+                "humidity": 87,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "02:00",
+                "range": "02:00-03:00",
+                "temperature": 24.3,
+                "humidity": 88,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "03:00",
+                "range": "03:00-04:00",
+                "temperature": 24.0,
+                "humidity": 89,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "04:00",
+                "range": "04:00-05:00",
+                "temperature": 23.8,
+                "humidity": 90,
+                "windSpeed": 3,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "05:00",
+                "range": "05:00-06:00",
+                "temperature": 23.5,
+                "humidity": 91,
+                "windSpeed": 3,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "06:00",
+                "range": "06:00-07:00",
+                "temperature": 23.9,
+                "humidity": 90,
+                "windSpeed": 4,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "07:00",
+                "range": "07:00-08:00",
+                "temperature": 25.3,
+                "humidity": 87,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "08:00",
+                "range": "08:00-09:00",
+                "temperature": 27.0,
+                "humidity": 84,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "09:00",
+                "range": "09:00-10:00",
+                "temperature": 28.7,
+                "humidity": 81,
+                "windSpeed": 9,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "10:00",
+                "range": "10:00-11:00",
+                "temperature": 30.3,
+                "humidity": 78,
+                "windSpeed": 11,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "11:00",
+                "range": "11:00-12:00",
+                "temperature": 31.5,
+                "humidity": 75,
+                "windSpeed": 12,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "12:00",
+                "range": "12:00-13:00",
+                "temperature": 32.9,
+                "humidity": 72,
+                "windSpeed": 13,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "13:00",
+                "range": "13:00-14:00",
+                "temperature": 33.4,
+                "humidity": 70,
+                "windSpeed": 14,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "14:00",
+                "range": "14:00-15:00",
+                "temperature": 33.2,
+                "humidity": 71,
+                "windSpeed": 13,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "15:00",
+                "range": "15:00-16:00",
+                "temperature": 32.0,
+                "humidity": 73,
+                "windSpeed": 12,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "16:00",
+                "range": "16:00-17:00",
+                "temperature": 30.7,
+                "humidity": 76,
+                "windSpeed": 11,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "17:00",
+                "range": "17:00-18:00",
+                "temperature": 29.4,
+                "humidity": 79,
+                "windSpeed": 10,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "18:00",
+                "range": "18:00-19:00",
+                "temperature": 28.2,
+                "humidity": 82,
+                "windSpeed": 9,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "19:00",
+                "range": "19:00-20:00",
+                "temperature": 27.0,
+                "humidity": 85,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "20:00",
+                "range": "20:00-21:00",
+                "temperature": 26.4,
+                "humidity": 87,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "21:00",
+                "range": "21:00-22:00",
+                "temperature": 25.8,
+                "humidity": 88,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "22:00",
+                "range": "22:00-23:00",
+                "temperature": 25.4,
+                "humidity": 89,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "23:00",
+                "range": "23:00-00:00",
+                "temperature": 25.0,
+                "humidity": 90,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            }
+        ]
+    },
+    {
+        "cityID": "674e0418a6b239ebfb81958b",
+        "date": "2024-12-24",
+        "hourly": [
+            {
+                "time": "00:00",
+                "range": "00:00-01:00",
+                "temperature": 25.1,
+                "humidity": 84,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "01:00",
+                "range": "01:00-02:00",
+                "temperature": 24.8,
+                "humidity": 85,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "02:00",
+                "range": "02:00-03:00",
+                "temperature": 24.5,
+                "humidity": 86,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "03:00",
+                "range": "03:00-04:00",
+                "temperature": 24.2,
+                "humidity": 87,
+                "windSpeed": 4,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "04:00",
+                "range": "04:00-05:00",
+                "temperature": 24.0,
+                "humidity": 88,
+                "windSpeed": 3,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "05:00",
+                "range": "05:00-06:00",
+                "temperature": 23.7,
+                "humidity": 89,
+                "windSpeed": 3,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "06:00",
+                "range": "06:00-07:00",
+                "temperature": 24.1,
+                "humidity": 88,
+                "windSpeed": 4,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "07:00",
+                "range": "07:00-08:00",
+                "temperature": 25.5,
+                "humidity": 85,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "08:00",
+                "range": "08:00-09:00",
+                "temperature": 27.2,
+                "humidity": 82,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "09:00",
+                "range": "09:00-10:00",
+                "temperature": 28.9,
+                "humidity": 79,
+                "windSpeed": 9,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "10:00",
+                "range": "10:00-11:00",
+                "temperature": 30.5,
+                "humidity": 76,
+                "windSpeed": 11,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "11:00",
+                "range": "11:00-12:00",
+                "temperature": 31.7,
+                "humidity": 73,
+                "windSpeed": 12,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "12:00",
+                "range": "12:00-13:00",
+                "temperature": 33.0,
+                "humidity": 70,
+                "windSpeed": 13,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "13:00",
+                "range": "13:00-14:00",
+                "temperature": 33.5,
+                "humidity": 68,
+                "windSpeed": 14,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "14:00",
+                "range": "14:00-15:00",
+                "temperature": 33.3,
+                "humidity": 69,
+                "windSpeed": 13,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "15:00",
+                "range": "15:00-16:00",
+                "temperature": 32.2,
+                "humidity": 71,
+                "windSpeed": 12,
+                "status": "Clear",
+                "status_image": "sunny"
+            },
+            {
+                "time": "16:00",
+                "range": "16:00-17:00",
+                "temperature": 30.9,
+                "humidity": 74,
+                "windSpeed": 11,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "17:00",
+                "range": "17:00-18:00",
+                "temperature": 29.6,
+                "humidity": 77,
+                "windSpeed": 10,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy"
+            },
+            {
+                "time": "18:00",
+                "range": "18:00-19:00",
+                "temperature": 28.4,
+                "humidity": 80,
+                "windSpeed": 9,
+                "status": "Partly Cloudy",
+                "status_image": "partially_cloudy_night"
+            },
+            {
+                "time": "19:00",
+                "range": "19:00-20:00",
+                "temperature": 27.2,
+                "humidity": 83,
+                "windSpeed": 8,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "20:00",
+                "range": "20:00-21:00",
+                "temperature": 26.6,
+                "humidity": 85,
+                "windSpeed": 7,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "21:00",
+                "range": "21:00-22:00",
+                "temperature": 26.0,
+                "humidity": 86,
+                "windSpeed": 6,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "22:00",
+                "range": "22:00-23:00",
+                "temperature": 25.6,
+                "humidity": 87,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            },
+            {
+                "time": "23:00",
+                "range": "23:00-00:00",
+                "temperature": 25.2,
+                "humidity": 88,
+                "windSpeed": 5,
+                "status": "Clear",
+                "status_image": "moon"
+            }
+        ]
+    }
+]

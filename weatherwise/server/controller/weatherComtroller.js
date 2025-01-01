@@ -1,34 +1,32 @@
 import City from "../model/cityModel.js";
-import Temperature from "../model/temperatureModel.js";
+import Weather from "../model/weatherModel.js";
 
-export const addTemperature = async (req, res) => {
+export const addWeather = async (req, res) => {
     try {
-        const { cityID, date, temperature } = req.body;
-        const newTemperature = new Temperature({
-            cityID, date, temperature
+        const { cityID, weatherData } = req.body;
+        const newWeather = new Weather({
+            cityID, weatherData
         })
-        await newTemperature.save();
-        res.status(201).json({ message: 'temperature added successfully' });
+        await newWeather.save();
+        res.status(201).json({ message: 'weather added successfully' });
     } catch (error) {
-        console.error("Error adding temperature", error);
-        res.status(500).json({ error: 'Failed to add temperature' })
+        console.error("Error adding weather", error);
+        res.status(500).json({ error: 'Failed to add weather' })
     }
 }
 
-export const editTemperature = async (req, res) => {
+export const editWeather = async (req, res) => {
     try {
         const { id } = req.params;
-        const { cityID, date, temperature } = req.body;
+        const { cityID, weatherData } = req.body;
 
-        console.log(temperature);
-
-        const updatedTemp = await Temperature.findByIdAndUpdate(
+        const updatedWeather = await Weather.findByIdAndUpdate(
             id,
-            { cityID, date, temperature },
+            { cityID, weatherData },
             { new: true }
         );
 
-        if (!updatedTemp) {
+        if (!updatedWeather) {
             return res.status(404).json({ message: 'City not found' });
         }
 
@@ -40,13 +38,13 @@ export const editTemperature = async (req, res) => {
 }
 
 
-export const deleteTemp = async (req, res) => {
+export const deleteweather = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const deletedTemp = await Temperature.findByIdAndDelete(id);
+        const deletedWeather = await Weather.findByIdAndDelete(id);
 
-        if (!deletedTemp) {
+        if (!deletedWeather) {
             return res.status(404).json({ message: 'City not found' });
         }
 
@@ -60,7 +58,7 @@ export const deleteTemp = async (req, res) => {
 
 export const displayWeather = async (req, res) => {
     try {
-        const temp = await Temperature.find().populate({
+        const weather = await Weather.find().populate({
             path: 'cityID',
             populate: [
                 { path: 'stateID', model: 'State', select: 'stateName' },
@@ -68,56 +66,60 @@ export const displayWeather = async (req, res) => {
             ]
         })
 
-        res.status(200).json({ message: 'temperatures retrieved successfully', temp });
+        res.status(200).json({ message: 'temperatures retrieved successfully', weather });
     } catch (error) {
         console.error("Error showing temperature", error);
         res.status(500).json({ error: 'Failed to show temperature' })
     }
 }
 
-export const displayTempcitywise = async (req, res) => {
+export const displayWeathercitywise = async (req, res) => {
     try {
         const { id } = req.params;
-        const temp = await Temperature.find({ cityID: { _id: id } }).populate({
+        const weather = await Weather.find({ cityID: { _id: id } }).populate({
             path: 'cityID',
             populate: [
                 { path: 'stateID', model: 'State', select: 'stateName' },
                 { path: 'countryID', model: 'Country', select: 'countryName' }
             ]
         });
-        res.status(200).json({ message: 'temperatures retrieved successfully', temp });
+        res.status(200).json({ message: 'temperatures retrieved successfully', weather });
     } catch (error) {
         console.error("Error showing temperature", error);
         res.status(500).json({ error: 'Failed to show temperature' })
     }
 }
-export const displayTempdatewise = async (req, res) => {
+export const displayWeatherdatewise = async (req, res) => {
     try {
-        const { id, date } = req.params;
-        const temp = await Temperature.find({ date: date }).populate({
-            path: 'cityID',
-            populate: [
-                { path: 'stateID', model: 'State', select: 'stateName' },
-                { path: 'countryID', model: 'Country', select: 'countryName' }
-            ]
-        });
-        res.status(200).json({ message: 'temperatures retrieved successfully', temp });
+        const { date } = req.params;
+        const targetDate = new Date(date);
+
+        const weather = await Weather.find({ date: targetDate })
+            .populate({
+                path: 'cityID',
+                populate: [
+                    { path: 'stateID', model: 'State', select: 'stateName' },
+                    { path: 'countryID', model: 'Country', select: 'countryName' }
+                ]
+            });
+        res.status(200).json({ message: 'weather retrieved successfully', weather });
     } catch (error) {
         console.error("Error showing temperature", error);
-        res.status(500).json({ error: 'Failed to show temperature' })
+        res.status(500).json({ error: 'Failed to show weather' })
     }
 }
-export const displayTempcitydatewise = async (req, res) => {
+export const displayWeathercitydatewise = async (req, res) => {
     try {
         const { id, date } = req.params;
-        const temp = await Temperature.findOne({ cityID: { _id: id }, date: date }).populate({
+        const targetDate = new Date(date);
+        const weather = await Weather.findOne({ cityID: { _id: id }, date: targetDate }).populate({
             path: 'cityID',
             populate: [
                 { path: 'stateID', model: 'State', select: 'stateName' },
                 { path: 'countryID', model: 'Country', select: 'countryName' }
             ]
         });
-        res.status(200).json({ message: 'temperatures retrieved successfully', temp });
+        res.status(200).json({ message: 'temperatures retrieved successfully', weather });
     } catch (error) {
         console.error("Error showing temperature", error);
         res.status(500).json({ error: 'Failed to show temperature' })
@@ -125,7 +127,7 @@ export const displayTempcitydatewise = async (req, res) => {
 }
 export const listAllDates = async (req, res) => {
     try {
-        const dates = await Temperature.distinct('date')
+        const dates = await Weather.distinct('date')
         res.status(200).json({ message: 'dates retrieved successfully', dates });
     } catch (error) {
         console.error("Error showing dates", error);

@@ -2,7 +2,7 @@ import express from 'express';
 import { signup, signin, upload } from './controller/authController.js';
 import { addCity, addCountry, addState, deleteCity, getAllCities, getAllCountry, getAllState, getCityById, updateCity } from './controller/cityController.js';
 import { editUser, getUserByEmail } from './controller/userController.js';
-import { addWeather, deleteweather, displayWeathercitywise, editWeather, displayWeather, displayWeatherdatewise, displayWeathercitydatewise, listAllDates } from './controller/weatherComtroller.js';
+import { addWeather, deleteweather, displayWeathercitywise, editWeather, displayWeather, displayWeatherdatewise, displayWeathercitydatewise, listAllDates, displaysevendaysWeather, displayWeatherdatestatewise } from './controller/weatherController.js';
 
 const router = express.Router();
 
@@ -28,8 +28,9 @@ router.delete('/deleteWeather/:id', deleteweather);
 router.get('/AllWeather', displayWeather);
 router.get('/Weathercitywise/:id', displayWeathercitywise);
 router.get('/Weatherdatewise/:date', displayWeatherdatewise);
+router.get('/Weatherstatewise/:stateID/:date', displayWeatherdatestatewise);
 router.get('/Weathercitydatewise/:id/:date', displayWeathercitydatewise);
+router.post('/weatherofweek/:id', displaysevendaysWeather);
 router.get('/listDates', listAllDates);
 
 export default router;
- 

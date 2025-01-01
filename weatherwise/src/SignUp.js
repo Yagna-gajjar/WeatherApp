@@ -18,13 +18,67 @@ export default function SignUp() {
     function reducer(state, action) {
         return { ...state, [action.field]: action.value };
     }
-
     const [user, dispatch] = useReducer(reducer, initialState);
+    const [validationErrors, setValidationErrors] = useState({});
     const navigate = useNavigate();
     const fileInputRef = useRef(null);
-
     const handleChange = (e) => {
         dispatch({ field: e.target.name, value: e.target.value });
+        setValidationErrors((prevErrors) => ({ ...prevErrors, [e.target.name]: "" }));
+    };
+    const validateForm = () => {
+        const errors = {};
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!user.username.trim()) {
+            errors.username = "Username is required.";
+        }
+        if (!user.email.trim() || !emailRegex.test(user.email)) {
+            errors.email = "A valid email is required.";
+        }
+        if (user.password.length < 6) {
+            errors.password = "Password must be at least 6 characters long.";
+        }
+        if (user.password !== user.confirmPassword) {
+            errors.confirmPassword = "Passwords do not match.";
+        }
+        if (!user.city.trim()) {
+            errors.city = "City is required.";
+        }
+        setValidationErrors(errors);
+        return Object.keys(errors).length === 0;
+    };
+    const handleSignUp = async () => {
+        if (!validateForm()) return;
+
+        try {
+            const formData = new FormData();
+            formData.append('username', user.username);
+            formData.append('email', user.email);
+            formData.append('password', user.password);
+            formData.append('city', user.city);
+            formData.append('state', user.state);
+            formData.append('country', user.country);
+            formData.append('profilePic', file.name || 'default.png');
+            formData.append('file', file);
+
+            const response = await axios.post("http://localhost:5000/api/signup", formData, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
+
+            if (response.status === 201) {
+                localStorage.setItem("email", response.data.user.email);
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("city_id", response.data.citydata._id);
+                localStorage.setItem("role", response.data.user.role);
+                navigate('/index');
+            } else if (response.status === 400) {
+                alert("User already exists");
+            } else {
+                alert(response.data.message || "Sign-up failed!");
+            }
+        } catch (error) {
+            alert("Error signing up: " + (error.response?.data?.message || error.message));
+        }
     };
 
     const [cities, setCities] = useState([]);
@@ -61,10 +115,11 @@ export default function SignUp() {
 
         setFilteredCities([]);
     };
-    const [file, setFile] = useState({})
+
+    const [file, setFile] = useState({});
 
     const handleEditProfilePic = (e) => {
-        setFile(e.target.files[0])
+        setFile(e.target.files[0]);
         const myfile = e.target.files[0];
         if (myfile) {
             const reader = new FileReader();
@@ -74,47 +129,6 @@ export default function SignUp() {
             reader.readAsDataURL(myfile);
         }
         dispatch({ field: e.target.name, value: e.target.files[0].name });
-    };
-
-    const handleSignUp = async () => {
-        if (user.password !== user.confirmPassword) {
-            alert("Passwords do not match!");
-            return;
-        }
-
-        try {
-            const formData = new FormData();
-            formData.append('username', user.username);
-            formData.append('email', user.email);
-            formData.append('password', user.password);
-            formData.append('city', user.city);
-            formData.append('state', user.state);
-            formData.append('country', user.country);
-            formData.append('profilePic', file.name || 'default.png');
-            formData.append('file', file);
-
-            const response = await axios.post("http://localhost:5000/api/signup", formData, {
-                headers: { 'Content-Type': 'multipart/form-data' }
-            });
-
-            if (response.status === 201) {
-                localStorage.setItem("email", response.data.user.email);
-                localStorage.setItem("token", response.data.token);
-                localStorage.setItem("city_id", response.data.citydata._id);
-                localStorage.setItem("role", response.data.user.role);
-                navigate('/index');
-            } else if (response.status === 400) {
-                alert("User already exists");
-            } else {
-                alert(response.data.message || "Sign-up failed!");
-            }
-        } catch (error) {
-            alert("Error signing up: " + (error.response?.data?.message || error.message));
-        }
-    };
-
-    const goBack = () => {
-        navigate('/');
     };
 
     const [showPassword, setShowPassword] = useState(false);
@@ -133,13 +147,11 @@ export default function SignUp() {
                             src={profilePic}
                             alt='Profile'
                         />
-
                         <div
                             className='w-44 h-44 absolute top-0 left-0 bg-opacity-45 bg-slate-950 rounded-full flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'
                             onClick={() => fileInputRef.current.click()}>
                             <FaEdit size={40} style={{ color: '#030A2E' }} />
                         </div>
-
                         <input
                             type='file'
                             name='file'
@@ -158,6 +170,7 @@ export default function SignUp() {
                     onChange={handleChange}
                     className='w-96 placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl my-3 py-1 px-3'
                 />
+                {validationErrors.username && <p className="text-red-500">{validationErrors.username}</p>}
                 <input
                     type='email'
                     name="email"
@@ -166,6 +179,7 @@ export default function SignUp() {
                     onChange={handleChange}
                     className='w-96 placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl my-3 py-1 px-3'
                 />
+                {validationErrors.email && <p className="text-red-500">{validationErrors.email}</p>}
                 <div className="relative w-96 my-3">
                     <input
                         type={showPassword ? 'text' : 'password'}
@@ -183,6 +197,7 @@ export default function SignUp() {
                         {showPassword ? <FaEyeSlash /> : <FaEye />}
                     </button>
                 </div>
+                {validationErrors.password && <p className="text-red-500">{validationErrors.password}</p>}
                 <input
                     type='password'
                     name="confirmPassword"
@@ -191,6 +206,7 @@ export default function SignUp() {
                     onChange={handleChange}
                     className='w-96 placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl my-3 py-1 px-3'
                 />
+                {validationErrors.confirmPassword && <p className="text-red-500">{validationErrors.confirmPassword}</p>}
                 <div className="relative w-96">
                     <input
                         type='text'
@@ -198,8 +214,9 @@ export default function SignUp() {
                         placeholder='City Name'
                         value={user.city}
                         onChange={handleCityInput}
-                        className='w-full placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl my-3 py-1 px-3'
+                        className='w-96 placeholder-slate-400 bg-transparent text-slate-400 border bottom-1 border-slate-600 rounded-xl my-3 py-1 px-3'
                     />
+                    {validationErrors.city && <p className="text-red-500">{validationErrors.city}</p>}
                     {filteredCities.length > 0 && (
                         <ul className="w-96 bg-white shadow-lg max-h-40 overflow-y-auto rounded-lg">
                             {filteredCities.map((city) => (
@@ -222,13 +239,10 @@ export default function SignUp() {
                     )}
                     <Link to={'/signin'} className='text-slate-600'>Already have an account? <span className='hover:cursor-pointer hover:text-slate-300'>Sign In</span></Link>
                     <div>
-                        <button
-                            onClick={handleSignUp}
-                            type='submit'
-                            className='bg-slate-500  text-slate-900 hover:bg-slate-700 hover:text-slate-200 px-3 py-1 rounded-2xl mt-3 mb-4 mx-3'>
-                            Sign Up
-                        </button>
-                        <button onClick={goBack} className='bg-slate-500  text-slate-900 hover:bg-slate-700 hover:text-slate-200 px-3 py-1 rounded-2xl mt-3 mb-4 mx-3'>Back</button>
+                        <button onClick={handleSignUp} className='bg-slate-500 text-slate-900 px-3 py-1 rounded-2xl mt-3'>Sign Up</button>
+                        <button onClick={() => {
+                            navigate('/');
+                        }} className='bg-slate-500  text-slate-900 hover:bg-slate-700 hover:text-slate-200 px-3 py-1 rounded-2xl mt-3 mb-4 mx-3'>Back</button>
                     </div>
                 </div>
             </div>

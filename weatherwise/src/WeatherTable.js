@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "./Loader";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const WeatherTable = () => {
     const [loading, setLoading] = useState(true);
@@ -28,7 +31,7 @@ const WeatherTable = () => {
     }, []);
 
     const fetchWeatherData = async () => {
-        const response = await axios.get("http://localhost:5000/api/AllTemp");
+        const response = await axios.get("http://localhost:5000/api/AllWeather");
         const enrichedData = response.data.temp
 
         setWeatherData([...enrichedData]);
@@ -150,8 +153,8 @@ const WeatherTable = () => {
     };
 
     return (
-        loading ? (<Loader />) : (<div className="p-6 bg-gray-100 m-16 rounded-md">
-            <h1 className="text-2xl font-bold text-slate-700 mb-4">Weather Details</h1>
+        loading ? (<Loader />) : (<div className="p-6 bg-slate-400 bg-opacity-25 m-16 rounded-md">
+            <h1 className="text-3xl font-bold text-slate-300 mb-4">Weather Details</h1>
             <form onSubmit={handleAddEdit} className="mb-6 grid gap-4">
                 <div className="grid grid-cols-5 gap-4">
                     <select
@@ -160,13 +163,14 @@ const WeatherTable = () => {
                             const selectedValue = e.target.value;
                             setFormData({ ...formData, cityID: selectedValue });
                         }}
-                        className="border rounded p-2"
+                        className="outline-none rounded p-2 bg-slate-400 opacity-75"
                     >
-                        <option value="">Select City</option>
+                        <option className="text-slate-900" value="">Select City</option>
                         {cityList.map((city) => (
                             <option
                                 key={city._id}
-                                value={city._id} // Only store the city ID here
+                                value={city._id}
+
                             >
                                 {`${city.cityName}, ${city.stateID.stateName}, ${city.countryID.countryName}`}
                             </option>
@@ -178,7 +182,7 @@ const WeatherTable = () => {
                         type="date"
                         value={formData.date}
                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                        className="border rounded p-2"
+                        className="outline-none bg-slate-400 bg-opacity-75 rounded p-2"
                     />
                 </div>
                 <div className="space-y-2">
@@ -188,7 +192,7 @@ const WeatherTable = () => {
                                 type="time"
                                 value={entry.time}
                                 onChange={(e) => handleTemperatureChange(index, "time", e.target.value)}
-                                className="border border-slate-400 rounded p-2 flex-1"
+                                className="outline-none bg-slate-400 bg-opacity-75 rounded p-2 flex-1"
                                 min="00:00"
                                 max="23:00"
                             />
@@ -196,25 +200,25 @@ const WeatherTable = () => {
                                 type="number"
                                 value={entry.temperature}
                                 onChange={(e) => handleTemperatureChange(index, "temperature", e.target.value)}
-                                className="border rounded p-2 flex-1"
+                                className="outline-none bg-slate-400 bg-opacity-75 rounded p-2 flex-1"
                                 placeholder="Temperature"
                             />
                             {
-                                index >= 0 ? (<p className="flex justify-center items-center" onClick={() => { removeTemperatureRow(index) }}>X</p>) : (<p className="flex justify-center items-center"></p>)
+                                index >= 0 ? (<p className="flex justify-center items-center" onClick={() => { removeTemperatureRow(index) }}><ClearIcon /></p>) : (<p className="flex justify-center items-center"></p>)
                             }
                         </div>
                     ))}
                     <button
                         type="button"
                         onClick={addTemperatureRow}
-                        className="text-blue-600 underline"
+                        className="text-slate-200 underline"
                     >
                         Add Another Time Slot
                     </button>
                 </div>
                 <button
                     type="submit"
-                    className="mt-4 bg-slate-600 text-white rounded p-2"
+                    className="mt-4 bg-slate-900 text-slate-300 rounded p-2"
                 >
                     {formData.id ? "Edit" : "Add"} Weather
                 </button>
@@ -223,14 +227,14 @@ const WeatherTable = () => {
             <div className="flex justify-between mb-4 items-center">
                 <button
                     onClick={() => handleTimeSlotChange(-1)}
-                    className="bg-blue-500 text-white px-3 py-2 rounded"
+                    className="bg-blue-400 text-white px-3 py-2 rounded"
                 >
                     &lt;
                 </button>
                 <span className="text-lg font-medium">{currentTimeRange}</span>
                 <button
                     onClick={() => handleTimeSlotChange(1)}
-                    className="bg-blue-500 text-white px-3 py-2 rounded"
+                    className="bg-blue-400 text-white px-3 py-2 rounded"
                 >
                     &gt;
                 </button>
@@ -278,7 +282,7 @@ const WeatherTable = () => {
                                 })}
                                 <td className="p-2 border border-slate-300">
                                     <button
-                                        className="text-blue-600"
+                                        className="text-blue-400"
                                         onClick={() => {
                                             setFormData({
                                                 id: data._id,
@@ -288,13 +292,13 @@ const WeatherTable = () => {
                                             });
                                         }}
                                     >
-                                        Edit
+                                        <EditIcon />
                                     </button>
                                     <button
                                         className="text-red-600"
                                         onClick={() => handleDelete(data._id)}
                                     >
-                                        Delete
+                                        <DeleteForeverIcon />
                                     </button>
                                 </td>
                             </tr>
@@ -303,159 +307,6 @@ const WeatherTable = () => {
                 </table>
             </div>
         </div>)
-        // <div className="p-6 bg-gray-100 m-16 rounded-md">
-        //     <h1 className="text-2xl font-bold text-slate-700 mb-4">Weather Details</h1>
-        //     <form onSubmit={handleAddEdit} className="mb-6 grid gap-4">
-        //         <div className="grid grid-cols-5 gap-4">
-        //             <select
-        //                 value={formData.cityID}
-        //                 onChange={(e) => {
-        //                     const selectedValue = e.target.value;
-        //                     setFormData({ ...formData, cityID: selectedValue });
-        //                 }}
-        //                 className="border rounded p-2"
-        //             >
-        //                 <option value="">Select City</option>
-        //                 {cityList.map((city) => (
-        //                     <option
-        //                         key={city._id}
-        //                         value={city._id} // Only store the city ID here
-        //                     >
-        //                         {`${city.cityName}, ${city.stateID.stateName}, ${city.countryID.countryName}`}
-        //                     </option>
-        //                 ))}
-        //             </select>
-
-
-        //             <input
-        //                 type="date"
-        //                 value={formData.date}
-        //                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-        //                 className="border rounded p-2"
-        //             />
-        //         </div>
-        //         <div className="space-y-2">
-        //             {formData.temperature.map((entry, index) => (
-        //                 <div key={index} className="flex space-x-4">
-        //                     <input
-        //                         type="time"
-        //                         value={entry.time}
-        //                         onChange={(e) => handleTemperatureChange(index, "time", e.target.value)}
-        //                         className="border border-slate-400 rounded p-2 flex-1"
-        //                         min="00:00"
-        //                         max="23:00"
-        //                     />
-        //                     <input
-        //                         type="number"
-        //                         value={entry.temperature}
-        //                         onChange={(e) => handleTemperatureChange(index, "temperature", e.target.value)}
-        //                         className="border rounded p-2 flex-1"
-        //                         placeholder="Temperature"
-        //                     />
-        //                     {
-        //                         index >= 0 ? (<p className="flex justify-center items-center" onClick={() => { removeTemperatureRow(index) }}>X</p>) : (<p className="flex justify-center items-center"></p>)
-        //                     }
-        //                 </div>
-        //             ))}
-        //             <button
-        //                 type="button"
-        //                 onClick={addTemperatureRow}
-        //                 className="text-blue-600 underline"
-        //             >
-        //                 Add Another Time Slot
-        //             </button>
-        //         </div>
-        //         <button
-        //             type="submit"
-        //             className="mt-4 bg-slate-600 text-white rounded p-2"
-        //         >
-        //             {formData.id ? "Edit" : "Add"} Weather
-        //         </button>
-        //     </form>
-
-        //     <div className="flex justify-between mb-4 items-center">
-        //         <button
-        //             onClick={() => handleTimeSlotChange(-1)}
-        //             className="bg-blue-500 text-white px-3 py-2 rounded"
-        //         >
-        //             &lt;
-        //         </button>
-        //         <span className="text-lg font-medium">{currentTimeRange}</span>
-        //         <button
-        //             onClick={() => handleTimeSlotChange(1)}
-        //             className="bg-blue-500 text-white px-3 py-2 rounded"
-        //         >
-        //             &gt;
-        //         </button>
-        //     </div>
-        //     <input type="text" onChange={handleSearchChange} placeholder="search city" className="border mb-4 w-full placeholder-slate-400 border-slate-800 rounded-2xl outline-none text-slate-800 px-5 py-1" />
-        //     <div className="overflow-y-scroll max-h-96 border border-slate-300 rounded-md">
-        //         <table className="table-auto w-full border-collapse">
-        //             <thead>
-        //                 <tr>
-        //                     <th className="p-2 border border-slate-300">City</th>
-        //                     <th className="p-2 border border-slate-300">State</th>
-        //                     <th className="p-2 border border-slate-300">Country</th>
-        //                     <th className="p-2 border border-slate-300">Date</th>
-        //                     {timeSlots.map((time) => (
-        //                         <th key={time} className="p-2 border border-slate-300">
-        //                             {time}
-        //                         </th>
-        //                     ))}
-        //                     <th className="p-2 border border-slate-300">Actions</th>
-        //                 </tr>
-        //             </thead>
-        //             <tbody>
-        //                 {filteredCities.map((data) => (
-        //                     <tr key={data.id}>
-        //                         <td className="p-2 border border-slate-300">{data.cityID.cityName}</td>
-        //                         <td className="p-2 border border-slate-300">{data.cityID.stateID.stateName}</td>
-        //                         <td className="p-2 border border-slate-300">{data.cityID.countryID.countryName}</td>
-        //                         <td className="p-2 border border-slate-300">
-        //                             {data.date.split("T")[0]}
-        //                         </td>
-        //                         {timeSlots.map((timeSlot) => {
-        //                             const filteredTemps = filterDataByTimeRange(data);
-        //                             const tempEntry = filteredTemps.find(
-        //                                 (temp) => temp.range === timeSlot
-        //                             );
-        //                             return (
-        //                                 <td
-        //                                     key={timeSlot}
-        //                                     className={`p-2 border border-slate-300 text-center ${tempEntry ? "" : "text-slate-500"
-        //                                         }`}
-        //                                 >
-        //                                     {tempEntry ? `${tempEntry.temperature}°C` : "-"}
-        //                                 </td>
-        //                             );
-        //                         })}
-        //                         <td className="p-2 border border-slate-300">
-        //                             <button
-        //                                 className="text-blue-600"
-        //                                 onClick={() => {
-        //                                     setFormData({
-        //                                         id: data._id,
-        //                                         cityID: data.cityID._id,
-        //                                         date: data.date.split("T")[0],
-        //                                         temperature: data.temperature,
-        //                                     });
-        //                                 }}
-        //                             >
-        //                                 Edit
-        //                             </button>
-        //                             <button
-        //                                 className="text-red-600"
-        //                                 onClick={() => handleDelete(data._id)}
-        //                             >
-        //                                 Delete
-        //                             </button>
-        //                         </td>
-        //                     </tr>
-        //                 ))}
-        //             </tbody>
-        //         </table>
-        //     </div>
-        // </div>
 
     );
 };
