@@ -5,6 +5,7 @@ import axios from 'axios'
 export default function CurrentWeather(props) {
     const { home } = props;
     const mode = useSelector((state) => state.mode.value);
+    const api = useSelector((state) => state.api.url);
     const [currentWeather, setCurrentWeather] = useState({
         cityName: "",
         temp: "",
@@ -22,7 +23,7 @@ export default function CurrentWeather(props) {
     const fetchData = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:5000/api/Weathercitydatewise/674e0418a6b239ebfb81958b/2024-12-19"
+                `${api}/api/Weathercitydatewise/674e0418a6b239ebfb81958b/2024-12-19`
             );
 
             const hourData = response.data.weather.hourly.find(e => e.time === `${timenow.getHours()}:00`);

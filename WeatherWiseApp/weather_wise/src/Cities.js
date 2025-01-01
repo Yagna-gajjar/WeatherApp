@@ -10,6 +10,7 @@ import SideBar from './components/SideBar';
 
 export default function Cities() {
     const [cities, setCities] = useState([]);
+    const api = useSelector((state) => state.api.url);
     const [currentWeather, setCurrentWeather] = useState({
         cityName: "",
         temp: "",
@@ -29,7 +30,7 @@ export default function Cities() {
     const fetchData = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:5000/api/Weathercitydatewise/674e0418a6b239ebfb81958b/2024-12-19"
+                `${api}/api/Weathercitydatewise/674e0418a6b239ebfb81958b/2024-12-19`
             );
 
             const hourData = response.data.weather.hourly.find(e => e.time === `${currentHour}:00`);
@@ -50,7 +51,7 @@ export default function Cities() {
     };
 
     const fetchCities = async () => {
-        const response = await axios.get("http://localhost:5000/api/Weatherdatewise/2024-12-22");
+        const response = await axios.get(`${api}/api/Weatherdatewise/2024-12-22`);
         setCities(response.data.weather);
     };
 

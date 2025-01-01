@@ -4,16 +4,18 @@ import axios from 'axios';
 import SideBar from './components/SideBar';
 import ModeToggle from './components/ModeToggle';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function Map() {
 
-    const [relatedCities, setRelatedCities] = useState([])
+    const [relatedCities, setRelatedCities] = useState([]);
+    const api = useSelector((state) => state.api.url);
     useEffect(() => {
         fetchCites();
     }, [])
 
     const fetchCites = async () => {
-        const response = await axios.get("http://localhost:5000/api/Weatherstatewise/674e01af950367e8c392b293/2024-12-22")
+        const response = await axios.get(`${api}/api/Weatherstatewise/674e01af950367e8c392b293/2024-12-22`)
         setRelatedCities(response.data.weather);
     }
 

@@ -8,6 +8,7 @@ import axios from 'axios';
 
 export default function Layout() {
     const mode = useSelector((state) => state.mode.value);
+    const api = useSelector((state) => state.api.url);
     const dispatch = useDispatch();
 
     const [timenow, setTimenow] = useState(new Date());
@@ -48,7 +49,7 @@ export default function Layout() {
 
     const fetchCities = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/Weatherdatewise/2024-12-22");
+            const response = await axios.get(`${api}/api/Weatherdatewise/2024-12-22`);
             setCities(response.data.weather);
         } catch (error) {
             console.error("Error fetching cities:", error);

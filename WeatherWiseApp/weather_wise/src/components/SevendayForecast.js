@@ -5,6 +5,7 @@ import axios from 'axios';
 export default function SevendayForecast(props) {
     const { backgroundcolor, width } = props;
     const mode = useSelector((state) => state.mode.value);
+    const api = useSelector((state) => state.api.url);
     const [sevendayData, setSevendayData] = useState([]);
     const [screenSize, setScreenSize] = useState({
         width: window.innerWidth,
@@ -17,7 +18,7 @@ export default function SevendayForecast(props) {
     }, [today]);
 
     const fetchData = async () => {
-        const response = await axios.post('http://localhost:5000/api/weatherofweek/674e042ca6b239ebfb81958e',
+        const response = await axios.post(`${api}/api/weatherofweek/674e042ca6b239ebfb81958e`,
             { "timenow": today.getHours(), "today": today.getDay() }
         )
         setSevendayData(response.data.sevenday);

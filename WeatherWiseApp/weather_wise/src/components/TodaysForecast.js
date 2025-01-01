@@ -5,13 +5,14 @@ import { useSelector } from "react-redux";
 export default function TodaysForecast(props) {
     const { backgroundcolor } = props;
     const mode = useSelector((state) => state.mode.value);
+    const api = useSelector((state) => state.api.url);
     const [todaysData, setTodaysData] = useState([])
     useEffect(() => {
         fetchData();
     }, []);
     const fetchData = async () => {
         const response = await axios.get(
-            "http://localhost:5000/api/Weathercitydatewise/674e0418a6b239ebfb81958b/2024-12-19"
+            `${api}/api/Weathercitydatewise/674e0418a6b239ebfb81958b/2024-12-19`
         )
         setTodaysData(response.data.weather.hourly)
     }
