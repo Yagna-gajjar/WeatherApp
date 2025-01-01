@@ -25,8 +25,8 @@ export default function CurrentWeather(props) {
             const response = await axios.get(
                 `${api}/api/Weathercitydatewise/674e0418a6b239ebfb81958b/2024-12-19`
             );
-
-            const hourData = response.data.weather.hourly.find(e => e.time === `${timenow.getHours()}:00`);
+            
+            const hourData = response.data.weather.hourly.find(e => e.time === `${timenow.getHours().toString().padStart(2, '0')}:00`);
 
             if (hourData) {
                 setCurrentWeather({

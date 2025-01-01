@@ -3,7 +3,7 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 // Mode slice
 const modeSlice = createSlice({
     name: "mode",
-    initialState: { value: localStorage.getItem('mode') || "light" },
+    initialState: { value: localStorage.getItem('mode') || "dark" },
     reducers: {
         changeMode: (state, modename) => {
             const newMode = modename.payload;

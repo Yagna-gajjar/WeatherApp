@@ -119,9 +119,9 @@ export default function Layout() {
                     <Outlet />
                 </div>
             </div>) : (
-            <div className='w-full p-5 flex flex-col justify-center'>
+            <div className='w-full p-5 flex flex-col'>
                 <div>
-                    <div className='flex'>
+                    <div className='flex items-center justify-center'>
                         <div className='pe-2'>
                             <SideBar />
                         </div>

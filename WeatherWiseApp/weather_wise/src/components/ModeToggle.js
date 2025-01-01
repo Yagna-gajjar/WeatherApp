@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../Store";
 import ModeStandbyIcon from '@mui/icons-material/ModeStandby';
+import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 
 export default function ModeToggle() {
     const mode = useSelector((state) => state.mode.value);
