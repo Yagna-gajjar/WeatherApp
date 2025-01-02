@@ -32,7 +32,7 @@ export default function ModeToggle() {
     }
 
     return (
-        <div className='flex items-center justify-center mx-12'>
+        <div className='flex items-center justify-center mx-12 z-10'>
             <div className=' z-10' onClick={(e) => {
                 openandclose()
                 const target = e.target;

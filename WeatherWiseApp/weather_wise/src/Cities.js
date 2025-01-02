@@ -21,11 +21,19 @@ export default function Cities() {
     });
     const [currentHour, setCurrentHour] = useState(new Date().getHours());
 
+    const [relatedCities, setRelatedCities] = useState([]);
+
     useEffect(() => {
         fetchData();
+        fetchCites();
         fetchCities();
     }, [currentHour]);
 
+
+    const fetchCites = async () => {
+        const response = await axios.get(`${api}/api/Weatherstatewise/674e01af950367e8c392b293/2024-12-22`)
+        setRelatedCities(response.data.weather);
+    }
 
     const fetchData = async () => {
         try {
@@ -33,7 +41,7 @@ export default function Cities() {
                 `${api}/api/Weathercitydatewise/674e0418a6b239ebfb81958b/2024-12-19`
             );
 
-            const hourData = response.data.weather.hourly.find(e => e.time === `${currentHour}:00`);
+            const hourData = response.data.weather.hourly.find(e => e.time === `${currentHour.toString().padStart(2, '0')}:00`);
 
             if (hourData) {
                 setCurrentWeather({
@@ -78,11 +86,11 @@ export default function Cities() {
     return (
         screenSize.width > 500 ? (
             <div>
-                <div className='flex overflow-hidden'>
-                    <div className='w-2/3 '>
-                        <Citydisplay List={cities} />
+                <div className='flex'>
+                    <div className='w-2/3 h-screen overflow-y-scroll'>
+                        <Citydisplay List={relatedCities} />
                     </div>
-                    <div className='w-1/3 overflow-y-scroll'>
+                    <div className='w-1/3 h-screen overflow-y-scroll'>
                         <div className='p-5'>
                             <div className='flex flex-col w-full h-52 min-[500px]:h-64 font-rubik'>
                                 <div className="text-text w-full flex justify-between">
@@ -112,8 +120,7 @@ export default function Cities() {
             <div>
                 <div className='flex overflow-hidden'>
                     <div className='w-full '>
-                        <Citydisplay List={cities} />
-
+                        <Citydisplay List={relatedCities} />
                         <TodaysForecast />
                         <SevendayForecast />
                     </div>

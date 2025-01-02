@@ -105,10 +105,10 @@ export default function Layout() {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
-                            <div className='absolute z-10 my-12 bg-secondary px-3 rounded-xl'>{
+                            <div className='absolute max-h-52 my-12 z-10 overflow-y-scroll bg-secondary rounded-xl'>{
                                 filteredCities.map((data) => {
                                     return (
-                                        <p className='text-primary font-bold text-base py-1'>{data.cityID.cityName},<span className='text-opacity-45 font-normal text-sm'>{data.cityID?.stateID.stateName},{data.cityID?.countryID.countryName}</span></p>
+                                        <p className='text-primary font-bold text-base py-1 px-3'>{data.cityID.cityName},<span className='text-opacity-45 font-normal text-sm'>{data.cityID?.stateID.stateName},{data.cityID?.countryID.countryName}</span></p>
                                     )
                                 })
                             }</div>
