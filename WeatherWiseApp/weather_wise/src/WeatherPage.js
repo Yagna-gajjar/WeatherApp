@@ -28,13 +28,6 @@ export default function WeatherPage() {
 
     return (
         <div className=''>
-            {/* <div className='flex'>
-                <div className='pe-2'>
-                    <SideBar />
-                </div>
-                <Link to={'/cityList'} className='w-8/12 bg-primary rounded-xl p-2 border-none outline-none text-secondary'>Search for cities</Link>
-                <ModeToggle />
-            </div> */}
             {screenSize.width > 1024 ? (
                 <div className='flex'>
                     <div className=''>
@@ -70,3 +63,4 @@ export default function WeatherPage() {
         </div>
     );
 }
+

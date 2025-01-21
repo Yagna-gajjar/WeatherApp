@@ -13,32 +13,25 @@ const weatherSchema = new mongoose.Schema({
     hourly: [
         {
             time: {
-                type: String,
-                required: true
+                type: String
             },
             range: {
-                type: String,
-                required: true
+                type: String
             },
             temperature: {
-                type: Number,
-                required: true
+                type: Number
             },
             humidity: {
-                type: Number,
-                required: true
+                type: Number
             },
             windSpeed: {
-                type: Number,
-                required: true
+                type: Number
             },
             status: {
-                type: String,
-                required: true
+                type: String
             },
             status_image: {
-                type: String,
-                required: true
+                type: String
             }
         }
     ]

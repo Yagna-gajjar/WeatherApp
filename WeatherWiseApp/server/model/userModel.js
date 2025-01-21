@@ -15,26 +15,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    city: {
-        type: String,
-        required: false,
-    },
-    state: {
-        type: String,
-        required: false,
-    },
-    country: {
+    cityId: {
         type: String,
         required: false,
     },
     profilePic: {
         type: String,
         default: 'default.png',
-    },
-    role: {
-        type: String,
-        enum: ['user', 'admin'],
-        default: 'user',
     },
     createdAt: {
         type: Date,

@@ -3,10 +3,8 @@ import Weather from "../model/weatherModel.js";
 
 export const addWeather = async (req, res) => {
     try {
-        const { cityID, weatherData } = req.body;
-        const newWeather = new Weather({
-            cityID, weatherData
-        })
+        const weatherData = req.body;
+        const newWeather = new Weather(weatherData)
         await newWeather.save();
         res.status(201).json({ message: 'weather added successfully' });
     } catch (error) {
@@ -17,15 +15,14 @@ export const addWeather = async (req, res) => {
 export const editWeather = async (req, res) => {
     try {
         const { id } = req.params;
-        const { cityID, weatherData } = req.body;
+        const { field, value, weatherindex } = req.body;
+        console.log(field, value, weatherindex);
 
-        const updatedWeather = await Weather.findByIdAndUpdate(
-            id,
-            { cityID, weatherData },
-            { new: true }
+        const WeatherPerticular = await Weather.updateOne(
+            { _id: id },
+            { $set: { [`hourly.${weatherindex}.${field}`]: value } }
         );
-
-        if (!updatedWeather) {
+        if (!WeatherPerticular) {
             return res.status(404).json({ message: 'City not found' });
         }
 
@@ -103,12 +100,13 @@ export const displayWeatherdatewise = async (req, res) => {
 }
 export const displayWeatherdatestatewise = async (req, res) => {
     try {
-        const { stateID, date } = req.params;
-
+        const { cityID, date } = req.params;
+        const citydata = await City.findOne({ _id: cityID })
+        const stateId = citydata.stateID
         const weather = await Weather.find({ date: date })
             .populate({
                 path: 'cityID',
-                match: { stateID: { _id: stateID } },
+                match: { stateID: { _id: stateId } },
                 populate: [
                     { path: 'stateID', model: 'State', select: 'stateName' },
                     { path: 'countryID', model: 'Country', select: 'countryName' }

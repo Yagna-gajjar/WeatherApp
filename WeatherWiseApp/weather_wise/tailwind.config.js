@@ -9,7 +9,8 @@ module.exports = {
         background: 'var(--background)',
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
-        text: 'var(--text)'
+        text: 'var(--text)',
+        border: 'var(--border)'
       },
       fontFamily: {
         rubik: ['Rubik', 'sans-serif']

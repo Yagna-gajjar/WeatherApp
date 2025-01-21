@@ -2,7 +2,7 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const modeSlice = createSlice({
     name: "mode",
-    initialState: { value: localStorage.getItem('mode') || "dark" },
+    initialState: { value: localStorage.getItem('mode') || "night" },
     reducers: {
         changeMode: (state, modename) => {
             const newMode = modename.payload;
@@ -17,7 +17,8 @@ const modeSlice = createSlice({
 
 const apiSlice = createSlice({
     name: "api",
-    initialState: { url: "https://weatherwiseapp.onrender.com" },
+    initialState: { url: "http://localhost:5000" },
+    // initialState: { url: "https://weatherwiseapp.onrender.com" },
     reducers: {
         setApiUrl: (state, action) => {
             state.url = action.payload;
@@ -25,13 +26,25 @@ const apiSlice = createSlice({
     },
 });
 
-export const { changeMode, setMode } = modeSlice.actions;
+const searchedCitySlice = createSlice({
+    name: "searchedCity",
+    initialState: { cityId: "674e0418a6b239ebfb81958b" },
+    reducers: {
+        setSerchedCity: (state, action) => {
+            state.cityId = action.payload;
+        }
+    }
+})
+
+export const { changeMode, toggleMode, setMode } = modeSlice.actions;
 export const { setApiUrl } = apiSlice.actions;
+export const { setSerchedCity } = searchedCitySlice.actions;
 
 const store = configureStore({
     reducer: {
         mode: modeSlice.reducer,
         api: apiSlice.reducer,
+        searchedCity: searchedCitySlice.reducer
     },
 });
 

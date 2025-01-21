@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import SideBar from './components/SideBar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { toggleMode } from "./Store";
+import { setSerchedCity, toggleMode } from "./Store";
 import ModeToggle from './components/ModeToggle';
 import axios from 'axios';
 
@@ -10,7 +10,6 @@ export default function Layout() {
     const mode = useSelector((state) => state.mode.value);
     const api = useSelector((state) => state.api.url);
     const dispatch = useDispatch();
-
     const [timenow, setTimenow] = useState(new Date());
     useEffect(() => {
         const timer = setInterval(() => {
@@ -56,6 +55,8 @@ export default function Layout() {
         }
     };
 
+    const nav = useNavigate();
+
     useEffect(() => {
         fetchCities();
     }, []);
@@ -97,7 +98,7 @@ export default function Layout() {
                     <SideBar />
                 </div>
                 <div className='w-full p-1 md:ps-5 flex flex-col justify-center'>
-                    <div className='flex w-full justify-between'>
+                    <div className='flex w-full'>
                         <div className='flex w-8/12'>
                             <input
                                 className="bg-primary w-full rounded-xl p-2 border-none outline-none text-text placeholder:text-secondary"
@@ -108,13 +109,19 @@ export default function Layout() {
                             <div className='absolute max-h-52 my-12 z-10 overflow-y-scroll bg-secondary rounded-xl'>{
                                 filteredCities.map((data) => {
                                     return (
-                                        <p className='text-primary font-bold text-base py-1 px-3'>{data.cityID.cityName},<span className='text-opacity-45 font-normal text-sm'>{data.cityID?.stateID.stateName},{data.cityID?.countryID.countryName}</span></p>
+                                        <p onClick={() => {
+                                            dispatch(setSerchedCity(data.cityID._id))
+                                            setSearchTerm("")
+                                            nav('/cityList')
+                                        }} className='text-primary font-bold text-base py-1 px-3 hover:cursor-pointer hover:bg-border'>{data.cityID.cityName},<span className='text-opacity-45 font-normal text-sm'>{data.cityID?.stateID.stateName},{data.cityID?.countryID.countryName}</span></p>
                                     )
                                 })
                             }</div>
-                            <ModeToggle />
                         </div>
-                        <p className='p-2 text-text mx-7'>{timenow.getDate() + '-' + (timenow.getMonth() + 1) + '-' + timenow.getFullYear() + ', ' + timenow.getHours() + ':' + timenow.getMinutes() + ':' + timenow.getSeconds()}</p>
+                        <div className='flex w-4/12 justify-around'>
+                            <ModeToggle />
+                            <p className='p-2 text-text'>{timenow.getDate() + '-' + (timenow.getMonth() + 1) + '-' + timenow.getFullYear() + ', ' + timenow.getHours() + ':' + timenow.getMinutes() + ':' + timenow.getSeconds()}</p>
+                        </div>
                     </div>
                     <Outlet />
                 </div>
@@ -126,19 +133,25 @@ export default function Layout() {
                             <SideBar />
                         </div>
                         <input
-                            className="w-8/12 bg-primary rounded-xl p-2 border-none outline-none text-text placeholder:text-secondary"
+                            className="bg-primary w-full rounded-xl p-2 border-none outline-none text-text placeholder:text-secondary"
                             placeholder="Search for cities"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
-                        <div className='absolute z-10 my-12 bg-background px-3 rounded-xl'>{
+                        <div className='absolute top-16 left-12 max-h-52 z-10 overflow-y-scroll bg-secondary rounded-xl'>{
                             filteredCities.map((data) => {
                                 return (
-                                    <p className='text-text font-bold text-base py-1'>{data.cityID.cityName},<span className='text-opacity-45 font-normal text-sm'>{data.cityID?.stateID.stateName},{data.cityID?.countryID.countryName}</span></p>
+                                    <p onClick={() => {
+                                        dispatch(setSerchedCity(data.cityID._id))
+                                        setSearchTerm("")
+                                        nav('/cityList')
+                                    }} className='text-primary font-bold text-base py-1 px-3 hover:cursor-pointer hover:bg-border'>{data.cityID.cityName},<span className='text-opacity-45 font-normal text-sm'>{data.cityID?.stateID.stateName},{data.cityID?.countryID.countryName}</span></p>
                                 )
                             })
                         }</div>
-                        <ModeToggle />
+                        <div className='px-4'>
+                            <ModeToggle />
+                        </div>
                     </div>
                     <p className='p-2 text-text'>{timenow.getDate() + '-' + (timenow.getMonth() + 1) + '-' + timenow.getFullYear() + ', ' + timenow.getHours() + ':' + timenow.getMinutes() + ':' + timenow.getSeconds()}</p>
 

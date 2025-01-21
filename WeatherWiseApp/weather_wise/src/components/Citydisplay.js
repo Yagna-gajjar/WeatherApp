@@ -11,6 +11,7 @@ import AirIcon from '@mui/icons-material/Air';
 
 export default function Citydisplay(props) {
     const { List } = props;
+
     const mode = useSelector((state) => state.mode.value);
     const [currenthour, setCurrenthour] = useState(new Date().getHours());
 

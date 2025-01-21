@@ -8,7 +8,7 @@
   --primary: #202b3b;
   --secondary: #9399a2;
   --text: #dde0e4;
-  --border: #35455e;
+  --border: #aeb2b9;
 }
 
 .sunny {
@@ -20,13 +20,14 @@
   --border: #000000;
 }
 
+
 .cloudy {
   background-color: var(--background);
   --background: #cfe2ff;
   --primary: #a6c8fc;
   --secondary: #262f3c;
   --text: #000f24;
-  --border: #5380c8;
+  --border: #000000;
 }
 
 body {
