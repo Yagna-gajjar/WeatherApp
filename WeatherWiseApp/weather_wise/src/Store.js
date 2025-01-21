@@ -17,8 +17,8 @@ const modeSlice = createSlice({
 
 const apiSlice = createSlice({
     name: "api",
-    initialState: { url: "http://localhost:5000" },
-    // initialState: { url: "https://weatherwiseapp.onrender.com" },
+    // initialState: { url: "http://localhost:5000" },
+    initialState: { url: "https://weatherwiseapp.onrender.com" },
     reducers: {
         setApiUrl: (state, action) => {
             state.url = action.payload;
