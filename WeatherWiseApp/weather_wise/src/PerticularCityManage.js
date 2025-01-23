@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,6 +9,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function PerticularCityManage() {
     const api = useSelector((state) => state.api.url);
@@ -21,6 +23,7 @@ export default function PerticularCityManage() {
     });
     const [activeButton, setActiveButton] = useState("Today");
     const [editing, setEditing] = useState(null);
+    const nav = useNavigate();
     const [updatingField, setUpdatingField] = useState('');
     const [updatingValue, setUpdatingValue] = useState('');
     const [updatingIndex, setUpdatingIndex] = useState(-1);
@@ -174,7 +177,17 @@ export default function PerticularCityManage() {
     return (
         <div className='flex flex-col justify-center items-center h-screen overflow-hidden'>
             <div className='flex flex-col items-start w-[90%] lg:w-[65%]'>
-                <p className='text-text font-bold text-3xl py-2 md:py-10'>{cityName}</p>
+                <div onClick={() => {
+                    nav('/admin')
+                }} className='flex justify-between transition-all duration-300 ease-in-out hover:gap-2 text-secondary py-2 hover:cursor-pointer'>
+                    <p className=''>
+                        <ArrowBackIosNewIcon />
+                    </p>
+                    <p id='backbtn' className='text-base transition-all duration-700'>
+                        Back
+                    </p>
+                </div>
+                <p className='text-text font-bold text-3xl py-2 md:py-5'>{cityName}</p>
                 <div className='flex gap-x-3 py-3'>
                     <button
                         className={`px-3 md:px-4 md:py-2 rounded-xl lg:rounded-full text-xs md:text-base ${activeButton === "Today" ? 'bg-primary text-white' : 'bg-secondary text-primary'}`}

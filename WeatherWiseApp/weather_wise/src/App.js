@@ -23,7 +23,7 @@ function App() {
         <Route path='/Signin' element={<SignIn />} />
         <Route path='/Signup' element={<Signup />} />
         <Route path='/admin' element={<PvtRoute />} >
-          <Route path='/admin/listAllCities' element={<AllCitiesAdmin />} />
+          <Route index element={<AllCitiesAdmin />} />
           <Route path='/admin/manageweather/:cityName/:cityId' element={<PerticularCityManage />} />
         </Route>
       </Routes>

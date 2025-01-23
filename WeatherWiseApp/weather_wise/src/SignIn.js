@@ -63,7 +63,7 @@ export default function SignIn() {
                 setSuccess(true);
                 setError(null);
 
-                nav('/admin/listAllCities')
+                nav('/admin')
             } else {
                 setError(response.data.message || 'Sign-in failed.');
                 setSuccess(false);

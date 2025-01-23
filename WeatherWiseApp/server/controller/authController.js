@@ -22,6 +22,7 @@ const storage = multer.diskStorage(
         },
         filename: function (req, file, cd) {
             cd(null, file.originalname);
+
         }
     }
 )

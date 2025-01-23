@@ -63,7 +63,6 @@ export default function SignUp() {
     };
     const handleSignUp = async () => {
         if (!validateForm()) return;
-
         try {
             const formData = new FormData();
             formData.append('username', user.username);
@@ -79,7 +78,7 @@ export default function SignUp() {
             if (response.status === 201) {
                 localStorage.setItem("email", response.data.user.email);
                 localStorage.setItem("token", response.data.token);
-                navigate('/');
+                navigate('/admin');
             } else if (response.status === 400) {
                 alert("User already exists");
             } else {

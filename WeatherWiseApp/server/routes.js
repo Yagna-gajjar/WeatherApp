@@ -1,6 +1,6 @@
 import express from 'express';
 import { signup, signin, upload, verifyUser } from './controller/authController.js';
-import { addCity, addCountry, addState, deleteCity, getAllCities, getAllCountry, getAllState, getCityById, updateCity } from './controller/cityController.js';
+import { getAllCities, getCityById } from './controller/cityController.js';
 import { editUser, getUserByEmail } from './controller/userController.js';
 import { addWeather, deleteweather, displayWeathercitywise, editWeather, displayWeather, displayWeatherdatewise, displayWeathercitydatewise, listAllDates, displaysevendaysWeather, displayWeatherdatestatewise } from './controller/weatherController.js';
 
@@ -12,16 +12,8 @@ router.put('/editprofile/:findemail', upload.single('file'), editUser);
 router.get('/oneuser/:findemail', getUserByEmail);
 router.post('/verifyUser', verifyUser);
 
-router.post('/city', addCity);
-router.put('/state', addState);
-router.post('/country', addCountry);
-router.post('/temperature', addWeather);
-router.put('/city/:id', updateCity);
-router.delete('/city/:id', deleteCity);
 router.get('/cityone/:id', getCityById);
 router.get('/city', getAllCities);
-router.get('/state', getAllState);
-router.get('/country', getAllCountry);
 
 router.post('/addWeather', addWeather);
 router.put('/editWeather/:id', editWeather);

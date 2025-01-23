@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema({
     cityId: {
         type: String,
         required: false,
+        ref: 'City',
     },
     profilePic: {
         type: String,
