@@ -101,7 +101,9 @@ export default function SignIn() {
             {error && <p className="text-red-500">{error}</p>}
 
             {success && <p className="text-green-500">Sign-in successful!</p>}
-
+            <div className='text-secondary hover:cursor-pointer' onClick={() => {
+                nav('/Signup')
+            }}>Don't have an account <span className='font-bold hover:text-text'>SingUp</span></div>
             <div className="my-2">
                 <Button value="Sign In" fun={handleSignIn} />
             </div>

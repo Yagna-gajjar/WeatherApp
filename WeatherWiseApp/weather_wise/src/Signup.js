@@ -150,7 +150,7 @@ export default function SignUp() {
                             alt='Profile'
                         />
                         <div
-                            className='w-44 h-44 absolute top-0 left-0 bg-opacity-45 bg-slate-950 rounded-full flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'
+                            className='w-44 h-44 absolute top-0 left-0 bg-opacity-45 bg-background rounded-full flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'
                             onClick={() => fileInputRef.current.click()}>
                             <EditIcon />
                         </div>
@@ -230,7 +230,7 @@ export default function SignUp() {
                                         onClick={() => {
                                             handleCitySelect(city)
                                         }}
-                                        className="px-3 py-2 cursor-pointer hover:bg-slate-300"
+                                        className="px-3 py-2 cursor-pointer hover:bg-text"
                                     >
                                         {city.cityName}, {city.stateID.stateName}, {city.countryID.countryName}
                                     </li>
@@ -244,7 +244,7 @@ export default function SignUp() {
                                 <p>Country: {selectedCity.countryID.countryName}</p>
                             </div>
                         )} */}
-                        <Link to={'/signin'} className='text-slate-600'>Already have an account? <span className='hover:cursor-pointer hover:text-slate-300'>Sign In</span></Link>
+                        <Link to={'/signin'} className='text-secondary'>Already have an account? <span className='hover:cursor-pointer font-bold hover:text-text'>Sign In</span></Link>
                         <div>
                             <Button value="Sign up" fun={handleSignUp} />
                             {/* <Button onClick={() => {

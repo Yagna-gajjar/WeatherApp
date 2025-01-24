@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Logo from '../assests/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 export default function SideBar() {
     const [selectedNav, setSelectedNav] = useState("Weather");
@@ -23,6 +24,12 @@ export default function SideBar() {
                 svg: (<svg viewBox="0 0 576 512" className='w-3 h-3 min-[1130px]:w-4 min-[1130px]:h-4'><path d="M0 117.66v346.32c0 11.32 11.43 19.06 21.94 14.86L160 416V32L20.12 87.95A32.006 32.006 0 0 0 0 117.66zM192 416l192 64V96L192 32v384zM554.06 33.16L416 96v384l139.88-55.95A31.996 31.996 0 0 0 576 394.34V48.02c0 - 11.32 - 11.43 - 19.06 - 21.94 - 14.86z"></path></svg>),
                 name: 'Map',
                 nav: '/Map'
+            },
+            {
+                svg: (<AdminPanelSettingsIcon />),
+                // svg: (<svg viewBox="0 0 576 512" className='w-3 h-3 min-[1130px]:w-4 min-[1130px]:h-4'><path d="M0 117.66v346.32c0 11.32 11.43 19.06 21.94 14.86L160 416V32L20.12 87.95A32.006 32.006 0 0 0 0 117.66zM192 416l192 64V96L192 32v384zM554.06 33.16L416 96v384l139.88-55.95A31.996 31.996 0 0 0 576 394.34V48.02c0 - 11.32 - 11.43 - 19.06 - 21.94 - 14.86z"></path></svg>),
+                name: 'Admin',
+                nav: '/admin'
             }
         ]
     )

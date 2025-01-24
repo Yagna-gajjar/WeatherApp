@@ -3,6 +3,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useNavigate } from 'react-router-dom';
 
 export default function AdminProfile() {
   const [userDetails, setUserDetails] = useState({});
@@ -11,7 +13,7 @@ export default function AdminProfile() {
   const [profilePic, setProfilePic] = useState('default.png');
   const api = useSelector((state) => state.api.url);
   const email = localStorage.getItem('email');
-
+  const nav = useNavigate();
   const fetchUser = async () => {
     try {
       const res = await axios.get(`${api}/api/oneuser/${email}`);
@@ -136,7 +138,7 @@ export default function AdminProfile() {
         </div>
         <div className="flex flex-col justify-center items-center text-primary">
           <p
-            className="text-3xl pt font-bold hover:cursor-pointer hover:underline hover:selection:bg-secondary selection:bg-secondary"
+            className="text-3xl outline-primary border-none p-3 font-bold hover:cursor-pointer hover:underline hover:selection:bg-secondary selection:bg-text"
             contentEditable={editing?.field === 'username'}
             suppressContentEditableWarning={true}
             onDoubleClick={(e) => handleCellDoubleClick(e, 'username')}
@@ -144,16 +146,32 @@ export default function AdminProfile() {
           >
             {userDetails.username}
           </p>
-          <p className="hover:cursor-pointer hover:underline hover:selection:bg-secondary selection:bg-secondary">
+          <p className="hover:cursor-pointer hover:selection:bg-secondary selection:bg-secondary">
             {userDetails.email}
           </p>
           {userDetails.cityId && (
-            <p className="py-4">
-              <span className="font-semibold">{userDetails.cityId.cityName}</span>,{' '}
-              {userDetails.cityId.stateID.stateName}, {userDetails.cityId.countryID.countryName}
-            </p>
+            <div className='py-4 flex flex-col justify-center items-center'>
+              <p className="font-bold">
+                {userDetails.cityId.cityName}
+              </p>
+              <p className="">
+                {userDetails.cityId.stateID.stateName}
+              </p>
+              <p className="">
+                {userDetails.cityId.countryID.countryName}
+              </p>
+            </div>
           )}
+          <div className='flex hover:font-bold' onClick={() => {
+            localStorage.removeItem('email')
+            localStorage.removeItem('token')
+            nav('/')
+          }}>
+            <LogoutIcon />
+            <p>Log out</p>
+          </div>
         </div>
+
       </div>
     </div>
   );
