@@ -1,0 +1,675 @@
+[{
+  "_id": {
+    "$oid": "674e0418a6b239ebfb81958b"
+  },
+  "cityName": "Ahmedabad",
+  "stateID": "674e01af950367e8c392b293",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e042ca6b239ebfb81958e"
+  },
+  "cityName": "Surat",
+  "stateID": "674e01af950367e8c392b293",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0436a6b239ebfb819591"
+  },
+  "cityName": "Vadodara",
+  "stateID": "674e01af950367e8c392b293",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e044ba6b239ebfb819594"
+  },
+  "cityName": "Mumbai",
+  "stateID": "674e01bf950367e8c392b296",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0452a6b239ebfb819597"
+  },
+  "cityName": "Pune",
+  "stateID": "674e01bf950367e8c392b296",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e045aa6b239ebfb81959a"
+  },
+  "cityName": "Nagpur",
+  "stateID": "674e01bf950367e8c392b296",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e046ba6b239ebfb81959d"
+  },
+  "cityName": "Jaipur",
+  "stateID": "674e01dd950367e8c392b299",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0474a6b239ebfb8195a0"
+  },
+  "cityName": "Udaipur",
+  "stateID": "674e01dd950367e8c392b299",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e047ba6b239ebfb8195a3"
+  },
+  "cityName": "Jodhpur",
+  "stateID": "674e01dd950367e8c392b299",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e048ea6b239ebfb8195a6"
+  },
+  "cityName": "Kochi",
+  "stateID": "674e0241950367e8c392b29c",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0499a6b239ebfb8195a9"
+  },
+  "cityName": "Thiruvananthapuram",
+  "stateID": "674e0241950367e8c392b29c",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e049fa6b239ebfb8195ac"
+  },
+  "cityName": "Kozhikode",
+  "stateID": "674e0241950367e8c392b29c",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e04b3a6b239ebfb8195af"
+  },
+  "cityName": "Chennai",
+  "stateID": "674e0254950367e8c392b29f",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e04bba6b239ebfb8195b2"
+  },
+  "cityName": "Coimbatore",
+  "stateID": "674e0254950367e8c392b29f",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e04c2a6b239ebfb8195b5"
+  },
+  "cityName": "Madurai",
+  "stateID": "674e0254950367e8c392b29f",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e051ba6b239ebfb8195b8"
+  },
+  "cityName": "Los Angeles",
+  "stateID": "674e0270950367e8c392b2a2",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e052da6b239ebfb8195bb"
+  },
+  "cityName": "San Francisco",
+  "stateID": "674e0270950367e8c392b2a2",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0535a6b239ebfb8195be"
+  },
+  "cityName": "San Diego",
+  "stateID": "674e0270950367e8c392b2a2",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0553a6b239ebfb8195c1"
+  },
+  "cityName": "Houston",
+  "stateID": "674e027f950367e8c392b2a5",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e055ea6b239ebfb8195c4"
+  },
+  "cityName": "Dallas",
+  "stateID": "674e027f950367e8c392b2a5",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0564a6b239ebfb8195c7"
+  },
+  "cityName": "Austin",
+  "stateID": "674e027f950367e8c392b2a5",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e057aa6b239ebfb8195ca"
+  },
+  "cityName": "Miami",
+  "stateID": "674e0284950367e8c392b2a8",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0582a6b239ebfb8195cd"
+  },
+  "cityName": "Orlando",
+  "stateID": "674e0284950367e8c392b2a8",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0588a6b239ebfb8195d0"
+  },
+  "cityName": "Tampa",
+  "stateID": "674e0284950367e8c392b2a8",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e05eca6b239ebfb8195d3"
+  },
+  "cityName": "New York City",
+  "stateID": "674e028e950367e8c392b2ab",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e05f5a6b239ebfb8195d6"
+  },
+  "cityName": "Buffalo",
+  "stateID": "674e028e950367e8c392b2ab",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e05fba6b239ebfb8195d9"
+  },
+  "cityName": "Rochester",
+  "stateID": "674e028e950367e8c392b2ab",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e060ca6b239ebfb8195dc"
+  },
+  "cityName": "Chicago",
+  "stateID": "674e0297950367e8c392b2ae",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e061ca6b239ebfb8195df"
+  },
+  "cityName": "Springfield",
+  "stateID": "674e0297950367e8c392b2ae",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e062ba6b239ebfb8195e2"
+  },
+  "cityName": "Aurora",
+  "stateID": "674e0297950367e8c392b2ae",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0654a6b239ebfb8195e5"
+  },
+  "cityName": "Toronto",
+  "stateID": "674e02ad950367e8c392b2b1",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e065aa6b239ebfb8195e8"
+  },
+  "cityName": "Ottawa",
+  "stateID": "674e02ad950367e8c392b2b1",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0661a6b239ebfb8195eb"
+  },
+  "cityName": "Mississauga",
+  "stateID": "674e02ad950367e8c392b2b1",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e067ca6b239ebfb8195ee"
+  },
+  "cityName": "Montreal",
+  "stateID": "674e02b4950367e8c392b2b4",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e068ca6b239ebfb8195f1"
+  },
+  "cityName": "Quebec City",
+  "stateID": "674e02b4950367e8c392b2b4",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0693a6b239ebfb8195f4"
+  },
+  "cityName": "Laval",
+  "stateID": "674e02b4950367e8c392b2b4",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e06aea6b239ebfb8195f7"
+  },
+  "cityName": "Vancouver",
+  "stateID": "674e02bb950367e8c392b2b7",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e06b7a6b239ebfb8195fa"
+  },
+  "cityName": "Victoria",
+  "stateID": "674e02bb950367e8c392b2b7",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e06bfa6b239ebfb8195fd"
+  },
+  "cityName": "Surrey",
+  "stateID": "674e02bb950367e8c392b2b7",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e06d8a6b239ebfb819600"
+  },
+  "cityName": "Calgary",
+  "stateID": "674e02c1950367e8c392b2ba",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e06dea6b239ebfb819603"
+  },
+  "cityName": "Edmonton",
+  "stateID": "674e02c1950367e8c392b2ba",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e06e5a6b239ebfb819606"
+  },
+  "cityName": "Red Deer",
+  "stateID": "674e02c1950367e8c392b2ba",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e06f6a6b239ebfb819609"
+  },
+  "cityName": "Winnipeg",
+  "stateID": "674e02c7950367e8c392b2bd",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0703a6b239ebfb81960c"
+  },
+  "cityName": "Brandon",
+  "stateID": "674e02c7950367e8c392b2bd",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0709a6b239ebfb81960f"
+  },
+  "cityName": "Steinbach",
+  "stateID": "674e02c7950367e8c392b2bd",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0752a6b239ebfb819612"
+  },
+  "cityName": "Sydney",
+  "stateID": "674e031a950367e8c392b2c0",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e075da6b239ebfb819615"
+  },
+  "cityName": "Newcastle",
+  "stateID": "674e031a950367e8c392b2c0",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0763a6b239ebfb819618"
+  },
+  "cityName": "Wollongong",
+  "stateID": "674e031a950367e8c392b2c0",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e078fa6b239ebfb81961b"
+  },
+  "cityName": "Melbourne",
+  "stateID": "674e0334950367e8c392b2c3",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0799a6b239ebfb81961e"
+  },
+  "cityName": "Geelong",
+  "stateID": "674e0334950367e8c392b2c3",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e079fa6b239ebfb819621"
+  },
+  "cityName": "Ballarat",
+  "stateID": "674e0334950367e8c392b2c3",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e07b4a6b239ebfb819624"
+  },
+  "cityName": "Brisbane",
+  "stateID": "674e033d950367e8c392b2c6",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e07c2a6b239ebfb819627"
+  },
+  "cityName": "Gold Coast",
+  "stateID": "674e033d950367e8c392b2c6",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e07cca6b239ebfb81962a"
+  },
+  "cityName": "Cairns",
+  "stateID": "674e033d950367e8c392b2c6",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0a6aa6b239ebfb81962d"
+  },
+  "cityName": "Perth",
+  "stateID": "674e0345950367e8c392b2c9",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0a74a6b239ebfb819630"
+  },
+  "cityName": "Fremantle",
+  "stateID": "674e0345950367e8c392b2c9",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0a7ba6b239ebfb819633"
+  },
+  "cityName": "Bunbury",
+  "stateID": "674e0345950367e8c392b2c9",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0a8ca6b239ebfb819636"
+  },
+  "cityName": "Hobart",
+  "stateID": "674e034c950367e8c392b2cc",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0a94a6b239ebfb819639"
+  },
+  "cityName": "Launceston",
+  "stateID": "674e034c950367e8c392b2cc",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0a9ca6b239ebfb81963c"
+  },
+  "cityName": "Devonport",
+  "stateID": "674e034c950367e8c392b2cc",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0ab6a6b239ebfb81963f"
+  },
+  "cityName": "São Paulo City",
+  "stateID": "674e0366950367e8c392b2cf",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0ac0a6b239ebfb819642"
+  },
+  "cityName": "Campinas",
+  "stateID": "674e0366950367e8c392b2cf",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0ac6a6b239ebfb819645"
+  },
+  "cityName": "Santos",
+  "stateID": "674e0366950367e8c392b2cf",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0ad8a6b239ebfb819648"
+  },
+  "cityName": "Rio de Janeiro City",
+  "stateID": "674e0372950367e8c392b2d2",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0ae2a6b239ebfb81964b"
+  },
+  "cityName": "Niterói",
+  "stateID": "674e0372950367e8c392b2d2",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0ae9a6b239ebfb81964e"
+  },
+  "cityName": "Petrópolis",
+  "stateID": "674e0372950367e8c392b2d2",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0b4aa6b239ebfb819651"
+  },
+  "cityName": "Salvador",
+  "stateID": "674e037a950367e8c392b2d5",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0b58a6b239ebfb819654"
+  },
+  "cityName": "Feira de Santana",
+  "stateID": "674e037a950367e8c392b2d5",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0b61a6b239ebfb819657"
+  },
+  "cityName": "Ilhéus",
+  "stateID": "674e037a950367e8c392b2d5",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0b78a6b239ebfb81965a"
+  },
+  "cityName": "Curitiba",
+  "stateID": "674e0381950367e8c392b2d8",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0b7da6b239ebfb81965d"
+  },
+  "cityName": "Londrina",
+  "stateID": "674e0381950367e8c392b2d8",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0b83a6b239ebfb819660"
+  },
+  "cityName": "Maringá",
+  "stateID": "674e0381950367e8c392b2d8",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0b95a6b239ebfb819663"
+  },
+  "cityName": "Belo Horizonte",
+  "stateID": "674e0390950367e8c392b2db",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0b9ca6b239ebfb819666"
+  },
+  "cityName": "Uberlândia",
+  "stateID": "674e0390950367e8c392b2db",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0ba5a6b239ebfb819669"
+  },
+  "cityName": "Juiz de Fora",
+  "stateID": "674e0390950367e8c392b2db",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+}]

@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "67ab2e7de2d52f70266cfb21"
+  },
+  "username": "admin_1",
+  "email": "admin@gmail.com",
+  "password": "$2a$10$BjrEyQp1ylwlpqt24opaXOI.RVr4u2qJBVz5KJHuz8tOXhnGDSQau",
+  "cityId": "674e0418a6b239ebfb81958b",
+  "profilePic": "default.png",
+  "createdAt": {
+    "$date": "2025-02-11T11:03:25.255Z"
+  },
+  "__v": 0
+}]

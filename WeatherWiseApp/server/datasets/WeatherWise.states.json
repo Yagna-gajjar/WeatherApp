@@ -1,0 +1,200 @@
+[{
+  "_id": {
+    "$oid": "674e01af950367e8c392b293"
+  },
+  "stateName": "Gujarat",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e01bf950367e8c392b296"
+  },
+  "stateName": "Maharashtra",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e01dd950367e8c392b299"
+  },
+  "stateName": "Rajasthan",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0241950367e8c392b29c"
+  },
+  "stateName": "Kerala",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0254950367e8c392b29f"
+  },
+  "stateName": "Tamil Nadu",
+  "countryID": "674e0128950367e8c392b284",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0270950367e8c392b2a2"
+  },
+  "stateName": "California",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e027f950367e8c392b2a5"
+  },
+  "stateName": "Texas",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0284950367e8c392b2a8"
+  },
+  "stateName": "Florida",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e028e950367e8c392b2ab"
+  },
+  "stateName": "New York",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0297950367e8c392b2ae"
+  },
+  "stateName": "Illinois",
+  "countryID": "674e0161950367e8c392b287",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e02ad950367e8c392b2b1"
+  },
+  "stateName": "Ontario",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e02b4950367e8c392b2b4"
+  },
+  "stateName": "Quebec",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e02bb950367e8c392b2b7"
+  },
+  "stateName": "British Columbia",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e02c1950367e8c392b2ba"
+  },
+  "stateName": "Alberta",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e02c7950367e8c392b2bd"
+  },
+  "stateName": "Manitoba",
+  "countryID": "674e0169950367e8c392b28a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e031a950367e8c392b2c0"
+  },
+  "stateName": "New South Wales",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0334950367e8c392b2c3"
+  },
+  "stateName": "Victoria",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e033d950367e8c392b2c6"
+  },
+  "stateName": "Queensland",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0345950367e8c392b2c9"
+  },
+  "stateName": "Western Australia",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e034c950367e8c392b2cc"
+  },
+  "stateName": "Tasmania",
+  "countryID": "674e016f950367e8c392b28d",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0366950367e8c392b2cf"
+  },
+  "stateName": "São Paulo",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0372950367e8c392b2d2"
+  },
+  "stateName": "Rio de Janeiro",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e037a950367e8c392b2d5"
+  },
+  "stateName": "Bahia",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0381950367e8c392b2d8"
+  },
+  "stateName": "Paraná",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e0390950367e8c392b2db"
+  },
+  "stateName": "Minas Gerais",
+  "countryID": "674e0176950367e8c392b290",
+  "__v": 0
+}]
