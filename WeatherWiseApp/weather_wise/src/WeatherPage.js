@@ -34,9 +34,9 @@ export default function WeatherPage() {
                         <div className='p-8'>
                             <CurrentWeather home="true" />
                         </div>
-                        <TodaysForecast backgroundcolor="primary" />
+                        <TodaysForecast backgroundcolor="primary" cityId='674e0418a6b239ebfb81958b' />
                     </div>
-                    <SevendayForecast backgroundcolor="primary" width='w-1/4' />
+                    <SevendayForecast backgroundcolor="primary" width='w-1/4'  cityId='674e0418a6b239ebfb81958b' />
                 </div>) : (
                 screenSize.width > 500 ? (
                     <div>
@@ -44,10 +44,10 @@ export default function WeatherPage() {
                             <CurrentWeather home="true" />
                         </div>
                         <div className='my-5'>
-                            <TodaysForecast backgroundcolor="primary" />
+                            <TodaysForecast backgroundcolor="primary" cityId='674e0418a6b239ebfb81958b' />
                         </div>
                         <div className='my-5'>
-                            <SevendayForecast backgroundcolor="primary" />
+                            <SevendayForecast backgroundcolor="primary"  cityId='674e0418a6b239ebfb81958b'/>
                         </div>
                     </div>) : (
 
@@ -56,7 +56,7 @@ export default function WeatherPage() {
                             <CurrentWeather home="true" />
                         </div>
                         <div className='mt-14'>
-                            <TodaysForecast />
+                            <TodaysForecast cityId='674e0418a6b239ebfb81958b' />
                         </div>
 
                     </div>))}

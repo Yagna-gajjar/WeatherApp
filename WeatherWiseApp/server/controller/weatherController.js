@@ -5,8 +5,9 @@ export const addWeather = async (req, res) => {
     try {
         const weatherData = req.body;
         const newWeather = new Weather(weatherData)
-        await newWeather.save();
-        res.status(201).json({ message: 'weather added successfully' });
+        const savedWeather = await newWeather.save();
+        const savedId = savedWeather._id;
+        res.status(201).json({ message: 'weather added successfully', savedId });
     } catch (error) {
         console.error("Error adding weather", error);
         res.status(500).json({ error: 'Failed to add weather' })
@@ -135,6 +136,8 @@ export const displayWeathercitydatewise = async (req, res) => {
                 { path: 'countryID', model: 'Country', select: 'countryName' }
             ]
         });
+        console.log(weather);
+
         res.status(200).json({ message: 'temperatures retrieved successfully', weather });
     } catch (error) {
         console.error("Error showing temperature", error);

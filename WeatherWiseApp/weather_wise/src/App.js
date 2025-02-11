@@ -24,7 +24,7 @@ function App() {
         <Route path='/Signup' element={<Signup />} />
         <Route path='/admin' element={<PvtRoute />} >
           <Route index element={<AllCitiesAdmin />} />
-          <Route path='/admin/manageweather/:cityName/:cityId' element={<PerticularCityManage />} />
+          <Route path='/admin/manageweather/:cityName/:cityId/:cityDate' element={<PerticularCityManage />} />
         </Route>
       </Routes>
     </BrowserRouter >

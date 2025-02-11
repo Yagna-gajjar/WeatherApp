@@ -34,7 +34,7 @@ export default function SignUp() {
 
     const [user, dispatch] = useReducer(reducer, initialState);
     const [validationErrors, setValidationErrors] = useState({});
-    const navigate = useNavigate();
+    const nav = useNavigate();
     const fileInputRef = useRef(null);
     const handleChange = (e) => {
         dispatch({ field: e.target.name, value: e.target.value });
@@ -78,7 +78,7 @@ export default function SignUp() {
             if (response.status === 201) {
                 localStorage.setItem("email", response.data.user.email);
                 localStorage.setItem("token", response.data.token);
-                navigate('/admin');
+                nav('/admin');
             } else if (response.status === 400) {
                 alert("User already exists");
             } else {
@@ -150,7 +150,7 @@ export default function SignUp() {
                             alt='Profile'
                         />
                         <div
-                            className='w-44 h-44 absolute top-0 left-0 bg-opacity-45 bg-background rounded-full flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'
+                            className='w-44 h-44 absolute top-0 left-0 bg-opacity-45 bg-black rounded-full flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer'
                             onClick={() => fileInputRef.current.click()}>
                             <EditIcon />
                         </div>
@@ -245,11 +245,11 @@ export default function SignUp() {
                             </div>
                         )} */}
                         <Link to={'/signin'} className='text-secondary'>Already have an account? <span className='hover:cursor-pointer font-bold hover:text-text'>Sign In</span></Link>
-                        <div>
+                        <div className='flex gap-7'>
                             <Button value="Sign up" fun={handleSignUp} />
-                            {/* <Button onClick={() => {
-                            navigate('/');
-                        }} value="Back" /> */}
+                            <Button value="cancle" fun={() => {
+                                nav('/')
+                            }} />
                         </div>
                     </div>
                 </div>

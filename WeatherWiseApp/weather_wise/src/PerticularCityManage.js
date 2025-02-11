@@ -8,27 +8,16 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import CloseIcon from '@mui/icons-material/Close';
+import { setAdminDate } from './Store';
 
 export default function PerticularCityManage() {
     const api = useSelector((state) => state.api.url);
-    const { cityName, cityId } = useParams();
-    const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
-    const [weatherData, setWeatherData] = useState({
-        cityID: cityId,
-        date: date,
-        hourly: []
-    });
-    const [activeButton, setActiveButton] = useState("Today");
-    const [editing, setEditing] = useState(null);
-    const nav = useNavigate();
-    const [updatingField, setUpdatingField] = useState('');
-    const [updatingValue, setUpdatingValue] = useState('');
-    const [updatingIndex, setUpdatingIndex] = useState(-1);
-    const [statusOptions] = useState(['Clear', 'Cloudy', 'Rainy', 'Partly Cloudy', 'Stormy']);
-
+    const { cityName, cityId, cityDate } = useParams();
+    const dispatch = useDispatch()
+    const [date, setDate] = useState(cityDate);
     const generateTimings = () => {
         const timings = [];
         for (let i = 0; i < 24; i++) {
@@ -38,66 +27,58 @@ export default function PerticularCityManage() {
         }
         return timings;
     };
+    const timing = generateTimings();
+    const updatedHourly = timing.map((data) => ({
+        time: data.split("-")[0],
+        range: data,
+        temperature: "",
+        humidity: "",
+        windSpeed: "",
+        status: "",
+        status_image: ""
+    }))
+
+    const [weatherData, setWeatherData] = useState({
+        cityID: cityId,
+        date: date,
+        hourly: updatedHourly
+    });
+    const [activeButton, setActiveButton] = useState(() => {
+        const today = new Date().toISOString().split('T')[0];
+        const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1))
+            .toISOString()
+            .split('T')[0];
+
+        if (cityDate === today) return "Today";
+        if (cityDate === tomorrow) return "Tomorrow";
+        return "Choose Date";
+    });
+    const [editing, setEditing] = useState(null);
+    const nav = useNavigate();
+    const [updatingField, setUpdatingField] = useState('');
+    const [updatingValue, setUpdatingValue] = useState('');
+    const [updatingIndex, setUpdatingIndex] = useState(-1);
+    const [statusOptions] = useState(['Clear', 'Cloudy', 'Rainy', 'Partly Cloudy', 'Stormy']);
 
     const [id, setID] = useState(null);
-
-    const fetchOneCity = async (selectedDate) => {
+    const fetchOneCity = async () => {
+        setID(null)
         try {
-            const res = await axios.get(`${api}/api/Weathercitydatewise/${cityId}/${selectedDate}`);
-            setWeatherData(res.data.weather || {
-                cityID: cityId,
-                date: selectedDate,
-                hourly: []
-            });
+            const res = await axios.get(`${api}/api/Weathercitydatewise/${cityId}/${cityDate}`);
+            if (res.data.weather != null) {
+                setWeatherData(res.data.weather)
+                setID(res.data.weather._id)
+            } else {
+                setID(null)
+            }
 
-            setWeatherData((prevState) => {
-                let updatedHourly = prevState.hourly;
-                if (prevState.hourly.length === 0) {
-                    const timing = generateTimings();
-                    updatedHourly = timing.map((data) => ({
-                        time: data.split("-")[0],
-                        range: data,
-                        temperature: "",
-                        humidity: "",
-                        windSpeed: "",
-                        status: "",
-                        status_image: ""
-                    }));
-                }
-                return {
-                    ...prevState,
-                    hourly: updatedHourly
-                };
-            });
-            setID(res.data.weather._id || null);
         } catch (error) {
             console.error("Error fetching weather data:", error);
-            setWeatherData((prevState) => {
-                let updatedHourly = prevState.hourly;
-                if (prevState.hourly.length === 0) {
-                    const timing = generateTimings();
-                    updatedHourly = timing.map((data) => ({
-                        time: data.split("-")[0],
-                        range: data,
-                        temperature: "",
-                        humidity: "",
-                        windSpeed: "",
-                        status: "",
-                        status_image: ""
-                    }));
-                }
-                return {
-                    ...prevState,
-                    hourly: updatedHourly
-                };
-            });
         }
     };
-
     useEffect(() => {
-        fetchOneCity(date);
-    }, [date]);
-
+        fetchOneCity();
+    }, [date, cityDate]);
     const handleDateChange = (buttonType) => {
         let selectedDate = new Date();
         if (buttonType === "Tomorrow") {
@@ -105,15 +86,30 @@ export default function PerticularCityManage() {
         } else if (buttonType === "Choose Date") {
             return;
         }
-
-        setDate(selectedDate.toISOString().split("T")[0]);
+        const formattedDate = selectedDate.toISOString().split("T")[0];
+        setDate(formattedDate);
+        dispatch(setAdminDate(formattedDate));
         setActiveButton(buttonType);
+        nav(`/admin/manageweather/${cityName}/${cityId}/${formattedDate}`);
+        window.location.reload();
     };
+
 
     const handleCustomDateChange = (event) => {
-        setDate(event.target.value);
+        const customDate = event.target.value;
+
+        if (!customDate) {
+            console.error("Invalid date selected.");
+            return;
+        }
+
+        setDate(customDate);
+        dispatch(setAdminDate(customDate));
         setActiveButton("Choose Date");
+        nav(`/admin/manageweather/${cityName}/${cityId}/${customDate}`);
+        window.location.reload();
     };
+
 
     const debounce = (func, delay) => {
         let timeout;
@@ -125,23 +121,31 @@ export default function PerticularCityManage() {
     const addOrEditWeather = useCallback(
         debounce(async () => {
             try {
-                if (id) {
-                    await axios.put(`${api}/api/editWeather/${id}`, { field: updatingField, value: updatingValue, weatherindex: updatingIndex });
+                if (id !== null) {
+
+                    await axios.put(`${api}/api/editWeather/${id}`, {
+                        field: updatingField,
+                        value: updatingValue,
+                        weatherindex: updatingIndex,
+                    });
                 } else {
-                    await axios.post(`${api}/api/addWeather`, weatherData);
+                    const res = await axios.post(`${api}/api/addWeather`, weatherData);
+                    setID(res.data.savedId);
                 }
             } catch (error) {
                 console.error("Error saving weather data:", error);
             }
         }, 300),
-        [api, date, weatherData]
+        [api, updatingField, updatingValue, updatingIndex, id]
     );
-    const handleCellDoubleClick = (e, time, field) => {
+
+    const handleCellDoubleClick = (e, time, field, index) => {
         setEditing({ time, field });
+        handleCellBlur(e, time, field, index)
     };
     const handleCellBlur = (event, time, field, index) => {
         const value = event.target.innerText.trim();
-        setEditing(null);
+        // setEditing(null);
         if (value && weatherData && field != 'status') {
             const updatedHourly = [...weatherData.hourly];
             const indexToUpdate = updatedHourly.findIndex(hour => hour.range === time);
@@ -151,14 +155,23 @@ export default function PerticularCityManage() {
                     [field]: value,
                 };
             }
-            setUpdatingField(field);
+            setUpdatingField(() => field);
             setUpdatingValue(value);
             setUpdatingIndex(index);
             setWeatherData({ ...weatherData, hourly: updatedHourly })
-            addOrEditWeather()
+            console.log(field, value, index, id);
         }
     };
 
+    useEffect(() => {
+        if (updatingField) {
+            console.log(id);
+            console.log("updatingField = ", updatingField);
+            console.log("updatingValue = ", updatingValue);
+            console.log("updatingIndex = ", updatingIndex);
+            addOrEditWeather();
+        }
+    }, [updatingValue, updatingField, updatingIndex]);
 
     const handleStatusChange = (e, time, index) => {
         setWeatherData({
@@ -170,9 +183,7 @@ export default function PerticularCityManage() {
         setUpdatingField('status');
         setUpdatingValue(e.target.value);
         setUpdatingIndex(index);
-        addOrEditWeather();
     };
-
     const timings = generateTimings();
     return (
         <div className='flex flex-col justify-center items-center h-screen overflow-hidden'>
@@ -217,7 +228,6 @@ export default function PerticularCityManage() {
                                 {
                                     ['Time', 'Temperature', 'Humidity', 'Wind Speed', 'Status'].map((fieldname, i) => {
                                         return (
-
                                             <TableCell className='text-text text-xs md:text-base selection:bg-primary' align="center">{fieldname}&nbsp;{i != 1 ? '' : '(c)'}</TableCell>
                                         )
                                     })
@@ -244,7 +254,7 @@ export default function PerticularCityManage() {
                                                             align="center"
                                                             contentEditable={editing?.time === time && editing?.field === field}
                                                             suppressContentEditableWarning={true}
-                                                            onDoubleClick={(e) => handleCellDoubleClick(e, time, field)}
+                                                            onDoubleClick={(e) => handleCellDoubleClick(e, time, field, index)}
                                                             onBlur={(e) => handleCellBlur(e, time, field, index)}
                                                         >
                                                             {dataForTime[field] || '--'}
@@ -261,10 +271,11 @@ export default function PerticularCityManage() {
                                                     <select
                                                         className="border p-1 bg-transparent"
                                                         value={dataForTime.status || 'Clear'}
-                                                        onBlur={(e) => handleCellBlur(e, time, 'status')}
+                                                        onBlur={(e) => handleCellBlur(e, time, 'status', index)}
                                                         onChange={(e) => handleStatusChange(e, time, index)}
                                                     >
-                                                        <option value="Clear" disabled selected className='bg-primary'>select status</option>
+                                                        <option value='null' disabled selected className='bg-primary'>select status</option>
+                                                        <option value='null' className='bg-primary'>none</option>
                                                         <option value="Clear" className='bg-primary'>Clear</option>
                                                         <option value="Cloudy" className='bg-primary'>Cloudy</option>
                                                         <option value="Rainy" className='bg-primary'>Rainy</option>

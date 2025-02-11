@@ -104,8 +104,11 @@ export default function SignIn() {
             <div className='text-secondary hover:cursor-pointer' onClick={() => {
                 nav('/Signup')
             }}>Don't have an account <span className='font-bold hover:text-text'>SingUp</span></div>
-            <div className="my-2">
+            <div className="my-2 flex gap-7">
                 <Button value="Sign In" fun={handleSignIn} />
+                <Button value="cancle" fun={() => {
+                    nav('/')
+                }} />
             </div>
         </div>
     );

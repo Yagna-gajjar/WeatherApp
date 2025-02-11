@@ -19,7 +19,6 @@ export default function PerticularCity() {
     useEffect(() => {
         fetchData()
         console.log(cityId);
-
     }, [cityId]);
     const fetchData = async () => {
         try {

@@ -25,11 +25,11 @@ export default function Cities() {
     const [relatedCities, setRelatedCities] = useState([]);
 
     useEffect(() => {
-        fetchCites();
+        fetchrelatedCities();
         fetchCities();
-    }, [currentHour]);
+    }, [currentHour, cityId]);
 
-    const fetchCites = async () => {
+    const fetchrelatedCities = async () => {
         const response = await axios.get(`${api}/api/Weatherstatewise/${cityId}/2024-12-22`)
         setRelatedCities(response.data.weather);
     }
@@ -68,8 +68,8 @@ export default function Cities() {
                     </div>
                     <div className='w-1/3 h-screen overflow-y-scroll'>
                         <PerticularCity />
-                        <TodaysForecast />
-                        <SevendayForecast />
+                        <TodaysForecast cityId={cityId} />
+                        <SevendayForecast cityId={cityId} />
                     </div>
                 </div>
             </div>) : (
@@ -77,8 +77,8 @@ export default function Cities() {
                 <div className='flex overflow-hidden'>
                     <div className='w-full '>
                         <Citydisplay List={relatedCities} />
-                        <TodaysForecast />
-                        <SevendayForecast />
+                        <TodaysForecast cityId={cityId} />
+                        <SevendayForecast cityId={cityId} />
                     </div>
                 </div>
             </div>

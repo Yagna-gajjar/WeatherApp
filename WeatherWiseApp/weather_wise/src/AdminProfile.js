@@ -102,11 +102,11 @@ export default function AdminProfile() {
   }, [userDetails, editing]);
 
   return (
-    <div id="profile" className="absolute bg-secondary transition-all duration-700 ease-in-out h-screen w-screen lg:w-[20%] -left-[20%]">
+    <div id="profile" className="absolute bg-secondary transition-all duration-700 ease-in-out h-screen w-screen lg:w-[20%] -left-[100%]">
       <div className="relative p-5">
         <div
           onClick={() => {
-            document.getElementById('profile').classList.add('-left-[20%]');
+            document.getElementById('profile').classList.add('-left-[100%]');
             document.getElementById('profile').classList.remove('left-0');
           }}
           className="flex w-full justify-end"

@@ -14,7 +14,6 @@ const modeSlice = createSlice({
         },
     },
 });
-
 const apiSlice = createSlice({
     name: "api",
     // initialState: { url: "http://localhost:5000" },
@@ -25,7 +24,6 @@ const apiSlice = createSlice({
         },
     },
 });
-
 const searchedCitySlice = createSlice({
     name: "searchedCity",
     initialState: { cityId: "674e0418a6b239ebfb81958b" },
@@ -36,15 +34,27 @@ const searchedCitySlice = createSlice({
     }
 })
 
+const adminDateSlice = createSlice({
+    name: "AdminDate",
+    initialState: { citiyDate: new Date().toISOString().split("T")[0] },
+    reducers: {
+        setAdminDate: (state, action) => {
+            state.citiyDate = action.payload;
+        }
+    }
+})
+
 export const { changeMode, toggleMode, setMode } = modeSlice.actions;
 export const { setApiUrl } = apiSlice.actions;
 export const { setSerchedCity } = searchedCitySlice.actions;
+export const { setAdminDate } = adminDateSlice.actions;
 
 const store = configureStore({
     reducer: {
         mode: modeSlice.reducer,
         api: apiSlice.reducer,
-        searchedCity: searchedCitySlice.reducer
+        searchedCity: searchedCitySlice.reducer,
+        AdminDate: adminDateSlice.reducer
     },
 });
 

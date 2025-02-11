@@ -21,17 +21,17 @@ function SkeletonLoad() {
 }
 
 export default function TodaysForecast(props) {
-    const { backgroundcolor } = props;
+    const { backgroundcolor, cityId } = props;
     const [isLoading, setIsLoading] = useState(true);
     const mode = useSelector((state) => state.mode.value);
     const api = useSelector((state) => state.api.url);
     const [todaysData, setTodaysData] = useState([])
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [cityId]);
     const fetchData = async () => {
         const response = await axios.get(
-            `${api}/api/Weathercitydatewise/674e0418a6b239ebfb81958b/2024-12-19`
+            `${api}/api/Weathercitydatewise/${cityId}/2024-12-19`
         )
         setTodaysData(response.data.weather.hourly)
     }

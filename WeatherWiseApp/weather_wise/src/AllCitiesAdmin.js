@@ -8,6 +8,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 export default function AllCitiesAdmin() {
     const api = useSelector((state) => state.api.url);
+    const AdminDate = useSelector((state) => state.AdminDate.citiyDate);
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredCities, setFilteredCities] = useState([]);
     const [cities, setCities] = useState([]);
@@ -44,7 +45,7 @@ export default function AllCitiesAdmin() {
             <div className='m-3 md:m-5 lg:m-7'>
                 <div className='text-text flex justify-center items-center'>
                     <div onClick={() => {
-                        document.getElementById('profile').classList.remove('-left-[20%]')
+                        document.getElementById('profile').classList.remove('-left-[100%]')
                         document.getElementById('profile').classList.add('left-0')
                     }}>
                         <AccountCircleIcon />
@@ -61,7 +62,7 @@ export default function AllCitiesAdmin() {
                         filteredCities.map((data) => {
                             return (
                                 <div onClick={() => {
-                                    nav(`/admin/manageweather/${data.cityName}/${data._id}`)
+                                    nav(`/admin/manageweather/${data.cityName}/${data._id}/${AdminDate}`)
                                 }} className='bg-primary rounded-2xl my-3 p-3 font-rubik capitalize'>
                                     <div className='flex items-center justify-between w-full' component="span">
                                         <div className="flex items-center">

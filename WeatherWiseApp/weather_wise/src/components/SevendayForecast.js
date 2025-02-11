@@ -28,7 +28,7 @@ function SkeletonLoad() {
 }
 
 export default function SevendayForecast(props) {
-    const { backgroundcolor, width } = props;
+    const { backgroundcolor, width, cityId } = props;
     const [isLoading, setIsLoading] = useState(true);
     const mode = useSelector((state) => state.mode.value);
     const api = useSelector((state) => state.api.url);
@@ -43,10 +43,10 @@ export default function SevendayForecast(props) {
         setIsLoading(true)
         fetchData();
         setIsLoading(false)
-    }, [today]);
+    }, [today, cityId]);
 
     const fetchData = async () => {
-        const response = await axios.post(`${api}/api/weatherofweek/674e042ca6b239ebfb81958e`,
+        const response = await axios.post(`${api}/api/weatherofweek/${cityId}`,
             { "timenow": today.getHours(), "today": today.getDay() }
         )
         setSevendayData(response.data.sevenday);

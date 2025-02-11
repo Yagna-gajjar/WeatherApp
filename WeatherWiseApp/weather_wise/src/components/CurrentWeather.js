@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from "react-redux";
 import axios from 'axios';
-import MyLocationIcon from '@mui/icons-material/MyLocation';
 import CircularProgress from '@mui/material/CircularProgress';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
@@ -108,7 +107,6 @@ export default function CurrentWeather(props) {
                                 <p className='text-xl min-[1130px]:text-2xl font-bold'>{currentWeather.cityName}</p>
                                 <p className={`text-secondary text-xs min-[1130px]:text-sm xl:text-base`}>{currentWeather.stateName}, {currentWeather.countryName}</p>
                             </div>
-                            <p className='text-secondary mx-5 '><MyLocationIcon /><span>Track my city</span></p>
                         </div>
                         <div className='pt-11'>
                             <div className='flex'>
